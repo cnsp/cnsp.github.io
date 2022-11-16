@@ -1,0 +1,55 @@
+---
+title: "CIS9660 Lab Compilation"
+author: "Chris Panlasigui, Yuanfeng Cai"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+editor: visual
+---
+
+# Exploratory Data Analysis
+
+## Load Data
+
+Before the lab, please download and save data `AutoLab1.csv` from Blackboard-Data.
+
+You can use function `read.table()` or `read.csv()` to import data into R, depending on the file type. You can use `help(read.csv)` or `?read.csv` to find more about how to use this function.
+
+Since the file type is .csv, we use `read.csv()`in this case. Use the following command to load `AutoLab1.csv` into R and store it as an object called Auto.
+
+The command, `file.choose()` locates the file from your local drive, the option `header=T` (or
+
+`header=TRUE`) means that the first line of the file contains the variable names, the option
+
+`stringsAsFactors=TRUE` (or `stringsAsFactors=T`) means that converting characters to factors
+
+```{r}
+# use file.choose() if you want a window to open for you to locate your file
+# Auto=read.csv(file.choose(),header=T, stringsAsFactors=TRUE)
+
+# if you know the path to your file you can directly include it and omit file.choose()
+Auto=read.csv("../raw_data/autolab1.csv",header=T, stringsAsFactors=TRUE)
+```
+
+## Data Structure
+
+You can use `head()` to look at the first few rows. Function `dim()` can output the number of rows followed by the number of columns and function `str(auto)` can return the data structure.
+
+```{r}
+head(Auto)
+dim(Auto)
+str(Auto)
+```
+
+## Summary Statistics
+
+We can use function `summary()` to output the summary statistics of data.
+
+```{r}
+summary(Auto)
+```
+
+## Data Restructuring
+
+The variable cylinders (i.e. the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in Step 3.
