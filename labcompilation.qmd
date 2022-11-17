@@ -1,0 +1,212 @@
+---
+project:
+  type: website
+
+website:
+  title: "CIS9660 Lab Compilation"
+  author: "Chris Panlasigui, Yuanfeng Cai"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show the code"
+editor: visual
+execute:
+  output: false
+---
+
+# Lab Compilation
+
+## Exploratory Data Analysis {#sec-EDA}
+
+### Loading Data {#sec-loaddata}
+
+Before the lab, please download and save data `AutoLab1.csv` from Blackboard-Data.
+
+```{r}
+# use file.choose() if you want a window to open for you to locate your file
+# Auto=read.csv(file.choose(),header=T, stringsAsFactors=TRUE)
+
+# if you know the path to your file you can directly include it and omit file.choose()
+Auto=read.csv(file="../raw_data/autolab1.csv",
+              header=T, 
+              stringsAsFactors=TRUE)
+```
+
+You can use function `read.table()` or `read.csv()` to import data into R, depending on the file type. You can use `help(read.csv)` or `?read.csv` to find more about how to use this function. Since the file type is .csv, we use `read.csv()`in this case. Use the following command to load `AutoLab1.csv` into R and store it as an object called Auto.
+
+The command, `file.choose()` locates the file from your local drive, the option `header=T` (or `header=TRUE`) means that the first line of the file contains the variable names, the option `stringsAsFactors=TRUE` (or `stringsAsFactors=T`) means that converting characters to factors
+
+### Data Structure {#sec-datastruct}
+
+```{r}
+head(Auto)
+dim(Auto)
+str(Auto)
+```
+
+You can use `head()` to look at the first few rows. Function `dim()` can output the number of rows followed by the number of columns and function `str()` can return the data structure.
+
+### Summary Statistics {#sec-summarystat}
+
+```{r}
+summary(Auto)
+```
+
+We can use function `summary()` to output the summary statistics of data.
+
+### Data Restructuring {#sec-datarestruct}
+
+```{r}
+Auto[,2] =as.factor (Auto[,2])
+summary(Auto[,2])
+```
+
+The variable cylinders (i.e. the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in @sec-summarystat.
+
+### Graphs {#sec-edagraphs}
+
+#### Scatterplot {#sec-edascatter}
+
+```{r}
+plot(x=Auto$horsepower , y=Auto$mpg)
+```
+
+We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the `$`sign or 
+
+```{r}
+attach(Auto)
+names(Auto)
+plot(x=horsepower , 
+     y=mpg, col ="red", 
+     xlab="Horsepower",
+     ylab ="MPG ",
+     xlim=c(30,250), 
+     ylim=c(5,50), 
+     main="Horsepower vs. MPG")
+```
+
+
+Use function `attach()` to tell R to make the variables available by name. Function `names()` lists all variable names. Then you can use the variable name directly.
+
+
+Here the option `col ="red"` tells R that color data points red. The options `xlab="Horsepower",ylab ="MPG"`, and `main="Horsepower vs. MPG"` tell R the x axis title, the y axis title and the main title respectively.
+
+The options `xlim` and `ylim` tell R the range of x axis and y axis.
+There are many other optional parameters in function `plot()`, which we do not include in this case. You can use `help(plot)` or `?plot` to explore more about them.
+
+```{r}
+par(mfrow=c(1,2))
+plot(x=acceleration ,
+     y=mpg, 
+     col ="red", 
+     xlab="Acceleration",
+     ylab ="MPG ", 
+     main="Acceleration vs. MPG")
+
+plot(x=weight , 
+     y=mpg, 
+     col ="red", 
+     xlab="Weight", 
+     ylab ="MPG ", 
+     main="Weight vs. MPG")
+```
+
+We can use function `par(mfrow=c(nrows,ncols))` to combine multiple plots into one graph. For example, `par(mfrow=c(3,1))` indicates that three figures will be arranged in 3 rows and 1 column. Now let’s generate another two figures and arrange them in one column.
+
+```{r}
+pairs(Auto)
+pairs(Auto[c(3:5)])
+```
+
+The `pairs()` function creates a scatterplot for every scatterplot pair of variables. We can also produce scatterplots matrix for just a subset of the variables.
+
+
+#### Barplot {#sec-edabarplot}
+
+```{r}
+par(mfrow=c(1,1))
+plot(x=cylinders, 
+    y=mpg, 
+    col="red", 
+    varwidth=T, 
+    xlab=" Cylinders ", 
+    ylab ="MPG ", 
+    main="Cylinders vs. MPG")
+```
+
+If the variable plotted on the x-axis is categorical, then boxplots will automatically be produced.
+
+#### Histogram {#sec-edahist}
+
+```{r}
+hist(x=mpg, 
+     breaks =10, 
+     col ="red", 
+     xlab ="MPG ",
+     xlim=c(0,50),
+     main="Histogram of MPG")
+```
+
+We can use `hist()` function to plot a histogram. The option `“breaks=10”` sets the total number of bins.
+
+
+## Linear Regression {#sec-linearregression}
+
+### Load Data
+
+Before the lab, please download Data Lab2Data.csv from Blackboard→Data. Then load Data Lab2Data.csv to object Datlab2.
+
+```{r}
+# delete global environment
+rm(list = ls())
+
+# load data
+Datlab2 = read.csv(file="../raw_data/Lab2Data.csv", 
+                   header=T, 
+                   stringsAsFactors=TRUE)
+
+# check column/variable names
+names(Datlab2)
+
+attach(Datlab2)
+```
+
+There are four input variables $(𝑥_1 ...𝑥_4)$ and one response variable $y$ in this data. Variable $x_4$ is a categorical variable with two possible values. We should create a dummy variable that takes on two possible numerical values. 
+
+```{r}
+contrasts(x4)
+```
+
+The `contrasts()` function returns how R codes this dummy variable.
+
+## Build Model
+
+### Full Model
+
+```{r}
+Model1=lm(y~x1+x2+x3+x4,data= Datlab2)
+```
+
+We first fit the entire data with all input variables into a multiple linear regression model Model1. We can use the `lm()` function:
+
+$$ y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon$$ 
+
+```{r}
+summary(Model1)
+```
+
+We can use the function `summary()` to obtain the coefficients, their associated `p-values`, and the $R^2$. We can find that only one variable looks insignificant in this model.
+
+### Model with interaction effect
+
+```{r}
+Model2=lm(y~x3*x4)
+summary(Model2)
+```
+
+
+We can also check if the model should include an interaction effect. For example, to test an interaction effect between $x_3$ and $x_4$, we can include `lm(y~x3*x4)`. The syntax `x_3*x_4` in the function `lm()` simultaneously includes $x_3$, $x_4$𝑥3, and $x_3 \times x_4$𝑥4. That is, `lm(y~x3*x4)` fits the following model:
+
+$$y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Chris Panlasigui, Yuanfeng Cai">
 
-<title>CIS9660 Lab Compilation</title>
+<title>labcompilation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,6 +97,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="labcompilation_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="labcompilation_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -108,128 +108,247 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
+  <ul>
+  <li><a href="#lab-compilation" id="toc-lab-compilation" class="nav-link active" data-scroll-target="#lab-compilation">Lab Compilation</a>
   <ul class="collapse">
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link active" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a>
+  <li><a href="#sec-EDA" id="toc-sec-EDA" class="nav-link" data-scroll-target="#sec-EDA">Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#sec-loaddata" id="toc-sec-loaddata" class="nav-link" data-scroll-target="#sec-loaddata">Loading Data</a></li>
+  <li><a href="#sec-datastruct" id="toc-sec-datastruct" class="nav-link" data-scroll-target="#sec-datastruct">Data Structure</a></li>
+  <li><a href="#sec-summarystat" id="toc-sec-summarystat" class="nav-link" data-scroll-target="#sec-summarystat">Summary Statistics</a></li>
+  <li><a href="#sec-datarestruct" id="toc-sec-datarestruct" class="nav-link" data-scroll-target="#sec-datarestruct">Data Restructuring</a></li>
+  <li><a href="#sec-edagraphs" id="toc-sec-edagraphs" class="nav-link" data-scroll-target="#sec-edagraphs">Graphs</a></li>
+  </ul></li>
+  <li><a href="#sec-linearregression" id="toc-sec-linearregression" class="nav-link" data-scroll-target="#sec-linearregression">Linear Regression</a>
   <ul class="collapse">
   <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load Data</a></li>
-  <li><a href="#data-structure" id="toc-data-structure" class="nav-link" data-scroll-target="#data-structure">Data Structure</a></li>
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
-  <li><a href="#data-restructuring" id="toc-data-restructuring" class="nav-link" data-scroll-target="#data-restructuring">Data Restructuring</a></li>
+  </ul></li>
+  <li><a href="#build-model" id="toc-build-model" class="nav-link" data-scroll-target="#build-model">Build Model</a>
+  <ul class="collapse">
+  <li><a href="#full-model" id="toc-full-model" class="nav-link" data-scroll-target="#full-model">Full Model</a></li>
+  <li><a href="#model-with-interaction-effect" id="toc-model-with-interaction-effect" class="nav-link" data-scroll-target="#model-with-interaction-effect">Model with interaction effect</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
 </div>
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">CIS9660 Lab Compilation</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Chris Panlasigui, Yuanfeng Cai </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="exploratory-data-analysis" class="level1">
-<h1>Exploratory Data Analysis</h1>
-<section id="load-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
+<section id="lab-compilation" class="level1">
+<h1>Lab Compilation</h1>
+<section id="sec-EDA" class="level2">
+<h2 class="anchored" data-anchor-id="sec-EDA">Exploratory Data Analysis</h2>
+<section id="sec-loaddata" class="level3">
+<h3 class="anchored" data-anchor-id="sec-loaddata">Loading Data</h3>
 <p>Before the lab, please download and save data <code>AutoLab1.csv</code> from Blackboard-Data.</p>
-<p>You can use function <code>read.table()</code> or <code>read.csv()</code> to import data into R, depending on the file type. You can use <code>help(read.csv)</code> or <code>?read.csv</code> to find more about how to use this function.</p>
-<p>Since the file type is .csv, we use <code>read.csv()</code>in this case. Use the following command to load <code>AutoLab1.csv</code> into R and store it as an object called Auto.</p>
-<p>The command, <code>file.choose()</code> locates the file from your local drive, the option <code>header=T</code> (or</p>
-<p><code>header=TRUE</code>) means that the first line of the file contains the variable names, the option</p>
-<p><code>stringsAsFactors=TRUE</code> (or <code>stringsAsFactors=T</code>) means that converting characters to factors</p>
 <div class="cell">
+<details>
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use file.choose() if you want a window to open for you to locate your file</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto=read.csv(file.choose(),header=T, stringsAsFactors=TRUE)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># if you know the path to your file you can directly include it and omit file.choose()</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Auto<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">"../raw_data/autolab1.csv"</span>,<span class="at">header=</span>T, <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Auto<span class="ot">=</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"../raw_data/autolab1.csv"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">header=</span>T, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
+<p>You can use function <code>read.table()</code> or <code>read.csv()</code> to import data into R, depending on the file type. You can use <code>help(read.csv)</code> or <code>?read.csv</code> to find more about how to use this function. Since the file type is .csv, we use <code>read.csv()</code>in this case. Use the following command to load <code>AutoLab1.csv</code> into R and store it as an object called Auto.</p>
+<p>The command, <code>file.choose()</code> locates the file from your local drive, the option <code>header=T</code> (or <code>header=TRUE</code>) means that the first line of the file contains the variable names, the option <code>stringsAsFactors=TRUE</code> (or <code>stringsAsFactors=T</code>) means that converting characters to factors</p>
 </section>
-<section id="data-structure" class="level2">
-<h2 class="anchored" data-anchor-id="data-structure">Data Structure</h2>
-<p>You can use <code>head()</code> to look at the first few rows. Function <code>dim()</code> can output the number of rows followed by the number of columns and function <code>str(auto)</code> can return the data structure.</p>
+<section id="sec-datastruct" class="level3">
+<h3 class="anchored" data-anchor-id="sec-datastruct">Data Structure</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  mpg cylinders displacement horsepower weight acceleration year origin
-1  18         8          307        130   3504         12.0   70      1
-2  15         8          350        165   3693         11.5   70      1
-3  18         8          318        150   3436         11.0   70      1
-4  16         8          304        150   3433         12.0   70      1
-5  17         8          302        140   3449         10.5   70      1
-6  15         8          429        198   4341         10.0   70      1
-                       name
-1 chevrolet chevelle malibu
-2         buick skylark 320
-3        plymouth satellite
-4             amc rebel sst
-5               ford torino
-6          ford galaxie 500</code></pre>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Auto)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 392   9</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   392 obs. of  9 variables:
- $ mpg         : num  18 15 18 16 17 15 14 14 14 15 ...
- $ cylinders   : int  8 8 8 8 8 8 8 8 8 8 ...
- $ displacement: num  307 350 318 304 302 429 454 440 455 390 ...
- $ horsepower  : int  130 165 150 150 140 198 220 215 225 190 ...
- $ weight      : int  3504 3693 3436 3433 3449 4341 4354 4312 4425 3850 ...
- $ acceleration: num  12 11.5 11 12 10.5 10 9 8.5 10 8.5 ...
- $ year        : int  70 70 70 70 70 70 70 70 70 70 ...
- $ origin      : int  1 1 1 1 1 1 1 1 1 1 ...
- $ name        : Factor w/ 301 levels "amc ambassador brougham",..: 49 36 230 14 160 141 54 222 240 2 ...</code></pre>
-</div>
-</div>
+<p>You can use <code>head()</code> to look at the first few rows. Function <code>dim()</code> can output the number of rows followed by the number of columns and function <code>str()</code> can return the data structure.</p>
 </section>
-<section id="summary-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<section id="sec-summarystat" class="level3">
+<h3 class="anchored" data-anchor-id="sec-summarystat">Summary Statistics</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>We can use function <code>summary()</code> to output the summary statistics of data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      mpg          cylinders      displacement     horsepower        weight    
- Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613  
- 1st Qu.:17.00   1st Qu.:4.000   1st Qu.:105.0   1st Qu.: 75.0   1st Qu.:2225  
- Median :22.75   Median :4.000   Median :151.0   Median : 93.5   Median :2804  
- Mean   :23.45   Mean   :5.472   Mean   :194.4   Mean   :104.5   Mean   :2978  
- 3rd Qu.:29.00   3rd Qu.:8.000   3rd Qu.:275.8   3rd Qu.:126.0   3rd Qu.:3615  
- Max.   :46.60   Max.   :8.000   Max.   :455.0   Max.   :230.0   Max.   :5140  
-                                                                               
-  acceleration        year           origin                      name    
- Min.   : 8.00   Min.   :70.00   Min.   :1.000   amc matador       :  5  
- 1st Qu.:13.78   1st Qu.:73.00   1st Qu.:1.000   ford pinto        :  5  
- Median :15.50   Median :76.00   Median :1.000   toyota corolla    :  5  
- Mean   :15.54   Mean   :75.98   Mean   :1.577   amc gremlin       :  4  
- 3rd Qu.:17.02   3rd Qu.:79.00   3rd Qu.:2.000   amc hornet        :  4  
- Max.   :24.80   Max.   :82.00   Max.   :3.000   chevrolet chevette:  4  
-                                                 (Other)           :365  </code></pre>
-</div>
-</div>
 </section>
-<section id="data-restructuring" class="level2">
-<h2 class="anchored" data-anchor-id="data-restructuring">Data Restructuring</h2>
-<p>The variable cylinders (i.e.&nbsp;the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in Step 3.</p>
+<section id="sec-datarestruct" class="level3">
+<h3 class="anchored" data-anchor-id="sec-datarestruct">Data Restructuring</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Auto[,<span class="dv">2</span>] <span class="ot">=</span><span class="fu">as.factor</span> (Auto[,<span class="dv">2</span>])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto[,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The variable cylinders (i.e.&nbsp;the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in <a href="#sec-summarystat">Section&nbsp;1.1.3</a>.</p>
+</section>
+<section id="sec-edagraphs" class="level3">
+<h3 class="anchored" data-anchor-id="sec-edagraphs">Graphs</h3>
+<section id="sec-edascatter" class="level4">
+<h4 class="anchored" data-anchor-id="sec-edascatter">Scatterplot</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>Auto<span class="sc">$</span>horsepower , <span class="at">y=</span>Auto<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the <code>$</code>sign or</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Auto)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>horsepower , </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span>mpg, <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Horsepower"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span><span class="st">"MPG "</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">250</span>), </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">50</span>), </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Horsepower vs. MPG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Use function <code>attach()</code> to tell R to make the variables available by name. Function <code>names()</code> lists all variable names. Then you can use the variable name directly.</p>
+<p>Here the option <code>col ="red"</code> tells R that color data points red. The options <code>xlab="Horsepower",ylab ="MPG"</code>, and <code>main="Horsepower vs. MPG"</code> tell R the x axis title, the y axis title and the main title respectively.</p>
+<p>The options <code>xlim</code> and <code>ylim</code> tell R the range of x axis and y axis. There are many other optional parameters in function <code>plot()</code>, which we do not include in this case. You can use <code>help(plot)</code> or <code>?plot</code> to explore more about them.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>acceleration ,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span>mpg, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Acceleration"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span><span class="st">"MPG "</span>, </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Acceleration vs. MPG"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>weight , </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span>mpg, </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Weight"</span>, </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span><span class="st">"MPG "</span>, </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Weight vs. MPG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can use function <code>par(mfrow=c(nrows,ncols))</code> to combine multiple plots into one graph. For example, <code>par(mfrow=c(3,1))</code> indicates that three figures will be arranged in 3 rows and 1 column. Now let’s generate another two figures and arrange them in one column.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto[<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The <code>pairs()</code> function creates a scatterplot for every scatterplot pair of variables. We can also produce scatterplots matrix for just a subset of the variables.</p>
+</section>
+<section id="sec-edabarplot" class="level4">
+<h4 class="anchored" data-anchor-id="sec-edabarplot">Barplot</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>cylinders, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span>mpg, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col=</span><span class="st">"red"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">varwidth=</span>T, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab=</span><span class="st">" Cylinders "</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span><span class="st">"MPG "</span>, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">main=</span><span class="st">"Cylinders vs. MPG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>If the variable plotted on the x-axis is categorical, then boxplots will automatically be produced.</p>
+</section>
+<section id="sec-edahist" class="level4">
+<h4 class="anchored" data-anchor-id="sec-edahist">Histogram</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span>mpg, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span><span class="dv">10</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span><span class="st">"MPG "</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Histogram of MPG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can use <code>hist()</code> function to plot a histogram. The option <code>“breaks=10”</code> sets the total number of bins.</p>
+</section>
+</section>
+</section>
+<section id="sec-linearregression" class="level2">
+<h2 class="anchored" data-anchor-id="sec-linearregression">Linear Regression</h2>
+<section id="load-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-data">Load Data</h3>
+<p>Before the lab, please download Data Lab2Data.csv from Blackboard→Data. Then load Data Lab2Data.csv to object Datlab2.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete global environment</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>Datlab2 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"../raw_data/Lab2Data.csv"</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">header=</span>T, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># check column/variable names</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Datlab2)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Datlab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>There are four input variables <span class="math inline">\((𝑥_1 ...𝑥_4)\)</span> and one response variable <span class="math inline">\(y\)</span> in this data. Variable <span class="math inline">\(x_4\)</span> is a categorical variable with two possible values. We should create a dummy variable that takes on two possible numerical values.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(x4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The <code>contrasts()</code> function returns how R codes this dummy variable.</p>
+</section>
+</section>
+<section id="build-model" class="level2">
+<h2 class="anchored" data-anchor-id="build-model">Build Model</h2>
+<section id="full-model" class="level3">
+<h3 class="anchored" data-anchor-id="full-model">Full Model</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Model1<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4,<span class="at">data=</span> Datlab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We first fit the entire data with all input variables into a multiple linear regression model Model1. We can use the <code>lm()</code> function:</p>
+<p><span class="math display">\[ y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon\]</span></p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can use the function <code>summary()</code> to obtain the coefficients, their associated <code>p-values</code>, and the <span class="math inline">\(R^2\)</span>. We can find that only one variable looks insignificant in this model.</p>
+</section>
+<section id="model-with-interaction-effect" class="level3">
+<h3 class="anchored" data-anchor-id="model-with-interaction-effect">Model with interaction effect</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Model2<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x3<span class="sc">*</span>x4)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can also check if the model should include an interaction effect. For example, to test an interaction effect between <span class="math inline">\(x_3\)</span> and <span class="math inline">\(x_4\)</span>, we can include <code>lm(y~x3*x4)</code>. The syntax <code>x_3*x_4</code> in the function <code>lm()</code> simultaneously includes <span class="math inline">\(x_3\)</span>, <span class="math inline">\(x_4\)</span>𝑥3, and <span class="math inline">\(x_3 \times x_4\)</span>𝑥4. That is, <code>lm(y~x3*x4)</code> fits the following model:</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon\]</span></p>
+</section>
 </section>
 </section>
 
