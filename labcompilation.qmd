@@ -455,6 +455,10 @@ We convert the predicted probabilities into a binary class label, `Yes` or `No`.
 glm.pred2=ifelse(glm.probs2 > 0.5, 'Yes', 'No')
 ```
 
+Based on the classifier, the predicted probabilities:
+
+$$\hat{p}(x) = \hat{P}(Y=1 | X=x)$$
+
 ```{r}
 table(glm.pred2,test.truevalue)
 mean(glm.pred2==test.truevalue)
@@ -527,9 +531,76 @@ Then we calculate the accuracy of the CV Logistic model by obtaining the grand a
 library(class)
 ```
 
+### Data Scaling
+
+```{r}
+standardized.balance=scale(balance)
+standardized.income=scale(income)
+```
 
 
+We first normalize the two quantitative input variables balance and income so that they would be on a comparable scale. The function `scale()` **standardizes** the quantitative variables.
+
+
+```{r}
+Input.standard=cbind(standardized.balance,standardized.income,student)
+accuracy=matrix(0,10,5)
+```
+
+Then we use the function cbind() to combine the two standardized variables and the qualitative input
+variable together.
+
+```{r}
+set.seed(2)
+folds=sample(1:5,nrow(Input.standard),replace=TRUE)
+
+for (j in 1:10) # 10 neighbors considered
+{
+  for(i in 1:5) # for each fold
+  {
+    # train data indices 
+    train.standard=Input.standard[folds!=i,]
+    # test data indices
+    test.standard=Input.standard[folds==i,]
+    
+    # y-values (default var) of train data
+    train.truevalue=default[folds!=i]
+    # y-values (default var) of test data 
+    test.truevalue=default[folds==i]
+    
+    
+    knn.pred=knn(train=train.standard,
+                 test=test.standard,
+                 cl=train.truevalue,
+                 k=j)
+    accuracy[j,i]=mean(knn.pred==test.truevalue)
+  }
+}
+```
+
+To use KNN, we need to determine K. We can use 5-fold cross-validation to select the best K from `[1,10]`. Thus, we first create a matrix to store the accuracy results for five folds and ten different K values. We set the initial values for this matrix as zero.
+
+`train.standard` is the input matrix of the training set and test.standard is the input matrix of the testing set.  `train.truevalue` is the original value of default in the training set and `test.truevalue` is the true value of
+default in the testing set. For each observation in the testing set, the knn function can calculate its distance with each observation in the training set based on `train.standard` and `test.standard`. Given `k=j`, it selects the `k` most nearest neighbors, and use their default values (based on `train.truevalue`) to predict the default values in the testing set. In the knn function, we specify the number of neighbors in the option `k=j`. The output of this loop is the prediction accuracy
+
+### Accuracy of KNN Model
+
+```{r}
+cv.accuracy=apply(accuracy,1,mean)
+```
+
+Then we calculate the average cross-validation accuracy for each `K`.
 
 # Classification: CART, Bagging & Random Forest {#sec-4class2}
 
-asdf
+```{r}
+rm(list = ls())
+library(tree)
+
+iris<-read.csv(file="../raw_data/iris.csv",
+               header=T, 
+               stringsAsFactors=TRUE)
+names(iris)
+attach(iris)
+summary(iris)
+```
