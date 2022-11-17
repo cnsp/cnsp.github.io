@@ -60,7 +60,7 @@ We can use function `summary()` to output the summary statistics of data.
 ## Data Restructuring {#sec-1datarestruct}
 
 ```{r}
-Auto[,2] =as.factor (Auto[,2])
+Auto[,2]=as.factor(Auto[,2])
 summary(Auto[,2])
 ```
 
@@ -71,7 +71,7 @@ The variable cylinders (i.e. the second column) is stored as a quantitative vari
 ### Scatterplot {#sec-1edascatter}
 
 ```{r}
-plot(x=Auto$horsepower , y=Auto$mpg)
+plot(x=Auto$horsepower, y=Auto$mpg)
 ```
 
 We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the `$`sign or 
@@ -142,8 +142,8 @@ If the variable plotted on the x-axis is categorical, then boxplots will automat
 ```{r}
 hist(x=mpg, 
      breaks =10, 
-     col ="red", 
-     xlab ="MPG ",
+     col="red", 
+     xlab="MPG ",
      xlim=c(0,50),
      main="Histogram of MPG")
 ```
@@ -212,8 +212,8 @@ $$y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$
 The result suggests that the interaction effect is significant.
 
 ```{r}
-plot(predict(Model2), residuals(Model2))
-plot(predict(Model2), rstudent(Model2))
+plot(x=predict(Model2), y=residuals(Model2))
+plot(x=predict(Model2), y=rstudent(Model2))
 ```
 
 We can generate diagnostic plots for models. The function `rstudent()` returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in `Model2`.

@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Auto[,<span class="dv">2</span>] <span class="ot">=</span><span class="fu">as.factor</span> (Auto[,<span class="dv">2</span>])</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Auto[,<span class="dv">2</span>]<span class="ot">=</span><span class="fu">as.factor</span>(Auto[,<span class="dv">2</span>])</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto[,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -211,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>Auto<span class="sc">$</span>horsepower , <span class="at">y=</span>Auto<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>Auto<span class="sc">$</span>horsepower, <span class="at">y=</span>Auto<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the <code>$</code>sign or</p>
@@ -288,8 +288,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span>mpg, </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span><span class="dv">10</span>, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span><span class="st">"MPG "</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">"red"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"MPG "</span>,</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Histogram of MPG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -363,11 +363,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">residuals</span>(Model2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span><span class="fu">predict</span>(Model2), <span class="at">y=</span><span class="fu">residuals</span>(Model2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">rstudent</span>(Model2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span><span class="fu">predict</span>(Model2), <span class="at">y=</span><span class="fu">rstudent</span>(Model2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can generate diagnostic plots for models. The function <code>rstudent()</code> returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in <code>Model2</code>.</p>
@@ -594,7 +594,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>glm.probs2<span class="ot">=</span><span class="fu">predict</span>(glm.fit2,Default.test, <span class="at">type=</span><span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We evaluate the performance of the model using the test set (Default.test). We use the function <code>predict()</code> to calculate the <em>predicted probabilities</em> of the <strong>default</strong> in the test set and store them to <code>glm.pred2</code>. The <em><code>type="response"</code></em> option tells R to output probabilities not the logit.</p>
+<p>We evaluate the performance of the model using the test set (Default.test). We use the function <code>predict()</code> to calculate the <em>predicted probabilities</em> of the <strong>default</strong> in the test set and store them to <code>glm.pred2</code>. The <code>type="response"</code> option tells R to output probabilities not the logit.</p>
 </section>
 </section>
 </section>
@@ -853,7 +853,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb37-66"><a href="#cb37-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Restructuring {#sec-1datarestruct}</span></span>
 <span id="cb37-67"><a href="#cb37-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-70"><a href="#cb37-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb37-71"><a href="#cb37-71" aria-hidden="true" tabindex="-1"></a>Auto[,<span class="dv">2</span>] <span class="ot">=</span><span class="fu">as.factor</span> (Auto[,<span class="dv">2</span>])</span>
+<span id="cb37-71"><a href="#cb37-71" aria-hidden="true" tabindex="-1"></a>Auto[,<span class="dv">2</span>]<span class="ot">=</span><span class="fu">as.factor</span>(Auto[,<span class="dv">2</span>])</span>
 <span id="cb37-72"><a href="#cb37-72" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto[,<span class="dv">2</span>])</span>
 <span id="cb37-73"><a href="#cb37-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb37-74"><a href="#cb37-74" aria-hidden="true" tabindex="-1"></a></span>
@@ -864,7 +864,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb37-79"><a href="#cb37-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Scatterplot {#sec-1edascatter}</span></span>
 <span id="cb37-80"><a href="#cb37-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-83"><a href="#cb37-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb37-84"><a href="#cb37-84" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>Auto<span class="sc">$</span>horsepower , <span class="at">y=</span>Auto<span class="sc">$</span>mpg)</span>
+<span id="cb37-84"><a href="#cb37-84" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>Auto<span class="sc">$</span>horsepower, <span class="at">y=</span>Auto<span class="sc">$</span>mpg)</span>
 <span id="cb37-85"><a href="#cb37-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb37-86"><a href="#cb37-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-87"><a href="#cb37-87" aria-hidden="true" tabindex="-1"></a>We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the <span class="in">`$`</span>sign or </span>
@@ -935,8 +935,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb37-162"><a href="#cb37-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb37-163"><a href="#cb37-163" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span>mpg, </span>
 <span id="cb37-164"><a href="#cb37-164" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span><span class="dv">10</span>, </span>
-<span id="cb37-165"><a href="#cb37-165" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
-<span id="cb37-166"><a href="#cb37-166" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span><span class="st">"MPG "</span>,</span>
+<span id="cb37-165"><a href="#cb37-165" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">"red"</span>, </span>
+<span id="cb37-166"><a href="#cb37-166" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"MPG "</span>,</span>
 <span id="cb37-167"><a href="#cb37-167" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),</span>
 <span id="cb37-168"><a href="#cb37-168" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Histogram of MPG"</span>)</span>
 <span id="cb37-169"><a href="#cb37-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -1005,8 +1005,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb37-242"><a href="#cb37-242" aria-hidden="true" tabindex="-1"></a>The result suggests that the interaction effect is significant.</span>
 <span id="cb37-243"><a href="#cb37-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-246"><a href="#cb37-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb37-247"><a href="#cb37-247" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">residuals</span>(Model2))</span>
-<span id="cb37-248"><a href="#cb37-248" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">rstudent</span>(Model2))</span>
+<span id="cb37-247"><a href="#cb37-247" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span><span class="fu">predict</span>(Model2), <span class="at">y=</span><span class="fu">residuals</span>(Model2))</span>
+<span id="cb37-248"><a href="#cb37-248" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span><span class="fu">predict</span>(Model2), <span class="at">y=</span><span class="fu">rstudent</span>(Model2))</span>
 <span id="cb37-249"><a href="#cb37-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb37-250"><a href="#cb37-250" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-251"><a href="#cb37-251" aria-hidden="true" tabindex="-1"></a>We can generate diagnostic plots for models. The function <span class="in">`rstudent()`</span> returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in <span class="in">`Model2`</span>.</span>
@@ -1213,7 +1213,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb37-480"><a href="#cb37-480" aria-hidden="true" tabindex="-1"></a>glm.probs2<span class="ot">=</span><span class="fu">predict</span>(glm.fit2,Default.test, <span class="at">type=</span><span class="st">"response"</span>)</span>
 <span id="cb37-481"><a href="#cb37-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb37-482"><a href="#cb37-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-483"><a href="#cb37-483" aria-hidden="true" tabindex="-1"></a>We evaluate the performance of the model using the test set (Default.test). We use the function <span class="in">`predict()`</span> to calculate the *predicted probabilities* of the **default** in the test set and store them to `glm.pred2`. The *`type="response"`* option tells R to output probabilities not the logit.</span>
+<span id="cb37-483"><a href="#cb37-483" aria-hidden="true" tabindex="-1"></a>We evaluate the performance of the model using the test set (Default.test). We use the function <span class="in">`predict()`</span> to calculate the *predicted probabilities* of the **default** in the test set and store them to <span class="in">`glm.pred2`</span>. The <span class="in">`type="response"`</span> option tells R to output probabilities not the logit.</span>
 <span id="cb37-484"><a href="#cb37-484" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-485"><a href="#cb37-485" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-486"><a href="#cb37-486" aria-hidden="true" tabindex="-1"></a></span>
