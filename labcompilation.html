@@ -111,22 +111,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#lab-compilation" id="toc-lab-compilation" class="nav-link active" data-scroll-target="#lab-compilation">Lab Compilation</a>
   <ul class="collapse">
-  <li><a href="#sec-EDA" id="toc-sec-EDA" class="nav-link" data-scroll-target="#sec-EDA">Exploratory Data Analysis</a>
+  <li><a href="#sec-1eda" id="toc-sec-1eda" class="nav-link" data-scroll-target="#sec-1eda">Exploratory Data Analysis</a>
   <ul class="collapse">
   <li><a href="#sec-loaddata" id="toc-sec-loaddata" class="nav-link" data-scroll-target="#sec-loaddata">Loading Data</a></li>
-  <li><a href="#sec-datastruct" id="toc-sec-datastruct" class="nav-link" data-scroll-target="#sec-datastruct">Data Structure</a></li>
-  <li><a href="#sec-summarystat" id="toc-sec-summarystat" class="nav-link" data-scroll-target="#sec-summarystat">Summary Statistics</a></li>
-  <li><a href="#sec-datarestruct" id="toc-sec-datarestruct" class="nav-link" data-scroll-target="#sec-datarestruct">Data Restructuring</a></li>
-  <li><a href="#sec-edagraphs" id="toc-sec-edagraphs" class="nav-link" data-scroll-target="#sec-edagraphs">Graphs</a></li>
+  <li><a href="#sec-1datastruct" id="toc-sec-1datastruct" class="nav-link" data-scroll-target="#sec-1datastruct">Data Structure</a></li>
+  <li><a href="#sec-1summarystat" id="toc-sec-1summarystat" class="nav-link" data-scroll-target="#sec-1summarystat">Summary Statistics</a></li>
+  <li><a href="#sec-1datarestruct" id="toc-sec-1datarestruct" class="nav-link" data-scroll-target="#sec-1datarestruct">Data Restructuring</a></li>
+  <li><a href="#sec-1edagraphs" id="toc-sec-1edagraphs" class="nav-link" data-scroll-target="#sec-1edagraphs">Graphs</a></li>
   </ul></li>
-  <li><a href="#sec-linearregression" id="toc-sec-linearregression" class="nav-link" data-scroll-target="#sec-linearregression">Linear Regression</a>
+  <li><a href="#sec-2linearregression" id="toc-sec-2linearregression" class="nav-link" data-scroll-target="#sec-2linearregression">Linear Regression</a>
   <ul class="collapse">
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load Data</a></li>
+  <li><a href="#sec-2loaddata" id="toc-sec-2loaddata" class="nav-link" data-scroll-target="#sec-2loaddata">Load Data</a></li>
   </ul></li>
-  <li><a href="#build-model" id="toc-build-model" class="nav-link" data-scroll-target="#build-model">Build Model</a>
+  <li><a href="#sec-2buildmodel" id="toc-sec-2buildmodel" class="nav-link" data-scroll-target="#sec-2buildmodel">Build Model</a>
   <ul class="collapse">
-  <li><a href="#full-model" id="toc-full-model" class="nav-link" data-scroll-target="#full-model">Full Model</a></li>
-  <li><a href="#model-with-interaction-effect" id="toc-model-with-interaction-effect" class="nav-link" data-scroll-target="#model-with-interaction-effect">Model with interaction effect</a></li>
+  <li><a href="#sec-2fullmodel" id="toc-sec-2fullmodel" class="nav-link" data-scroll-target="#sec-2fullmodel">Full Model</a></li>
+  <li><a href="#sec-2interactioneffect" id="toc-sec-2interactioneffect" class="nav-link" data-scroll-target="#sec-2interactioneffect">Model with interaction effect</a></li>
+  <li><a href="#sec-2resampling" id="toc-sec-2resampling" class="nav-link" data-scroll-target="#sec-2resampling">Resampling Methods</a></li>
+  <li><a href="#cross-validation-cv" id="toc-cross-validation-cv" class="nav-link" data-scroll-target="#cross-validation-cv">Cross-Validation (CV)</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -138,8 +140,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="lab-compilation" class="level1">
 <h1>Lab Compilation</h1>
-<section id="sec-EDA" class="level2">
-<h2 class="anchored" data-anchor-id="sec-EDA">Exploratory Data Analysis</h2>
+<section id="sec-1eda" class="level2">
+<h2 class="anchored" data-anchor-id="sec-1eda">Exploratory Data Analysis</h2>
 <section id="sec-loaddata" class="level3">
 <h3 class="anchored" data-anchor-id="sec-loaddata">Loading Data</h3>
 <p>Before the lab, please download and save data <code>AutoLab1.csv</code> from Blackboard-Data.</p>
@@ -158,8 +160,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can use function <code>read.table()</code> or <code>read.csv()</code> to import data into R, depending on the file type. You can use <code>help(read.csv)</code> or <code>?read.csv</code> to find more about how to use this function. Since the file type is .csv, we use <code>read.csv()</code>in this case. Use the following command to load <code>AutoLab1.csv</code> into R and store it as an object called Auto.</p>
 <p>The command, <code>file.choose()</code> locates the file from your local drive, the option <code>header=T</code> (or <code>header=TRUE</code>) means that the first line of the file contains the variable names, the option <code>stringsAsFactors=TRUE</code> (or <code>stringsAsFactors=T</code>) means that converting characters to factors</p>
 </section>
-<section id="sec-datastruct" class="level3">
-<h3 class="anchored" data-anchor-id="sec-datastruct">Data Structure</h3>
+<section id="sec-1datastruct" class="level3">
+<h3 class="anchored" data-anchor-id="sec-1datastruct">Data Structure</h3>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -170,8 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>You can use <code>head()</code> to look at the first few rows. Function <code>dim()</code> can output the number of rows followed by the number of columns and function <code>str()</code> can return the data structure.</p>
 </section>
-<section id="sec-summarystat" class="level3">
-<h3 class="anchored" data-anchor-id="sec-summarystat">Summary Statistics</h3>
+<section id="sec-1summarystat" class="level3">
+<h3 class="anchored" data-anchor-id="sec-1summarystat">Summary Statistics</h3>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -180,8 +182,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can use function <code>summary()</code> to output the summary statistics of data.</p>
 </section>
-<section id="sec-datarestruct" class="level3">
-<h3 class="anchored" data-anchor-id="sec-datarestruct">Data Restructuring</h3>
+<section id="sec-1datarestruct" class="level3">
+<h3 class="anchored" data-anchor-id="sec-1datarestruct">Data Restructuring</h3>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -189,12 +191,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto[,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The variable cylinders (i.e.&nbsp;the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in <a href="#sec-summarystat">Section&nbsp;1.1.3</a>.</p>
+<p>The variable cylinders (i.e.&nbsp;the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in <a href="#sec-1summarystat">Section&nbsp;1.1.3</a>.</p>
 </section>
-<section id="sec-edagraphs" class="level3">
-<h3 class="anchored" data-anchor-id="sec-edagraphs">Graphs</h3>
-<section id="sec-edascatter" class="level4">
-<h4 class="anchored" data-anchor-id="sec-edascatter">Scatterplot</h4>
+<section id="sec-1edagraphs" class="level3">
+<h3 class="anchored" data-anchor-id="sec-1edagraphs">Graphs</h3>
+<section id="sec-1edascatter" class="level4">
+<h4 class="anchored" data-anchor-id="sec-1edascatter">Scatterplot</h4>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -285,10 +287,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 </section>
 </section>
-<section id="sec-linearregression" class="level2">
-<h2 class="anchored" data-anchor-id="sec-linearregression">Linear Regression</h2>
-<section id="load-data" class="level3">
-<h3 class="anchored" data-anchor-id="load-data">Load Data</h3>
+<section id="sec-2linearregression" class="level2">
+<h2 class="anchored" data-anchor-id="sec-2linearregression">Linear Regression</h2>
+<section id="sec-2loaddata" class="level3">
+<h3 class="anchored" data-anchor-id="sec-2loaddata">Load Data</h3>
 <p>Before the lab, please download Data Lab2Data.csv from Blackboard→Data. Then load Data Lab2Data.csv to object Datlab2.</p>
 <div class="cell">
 <details>
@@ -317,10 +319,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>contrasts()</code> function returns how R codes this dummy variable.</p>
 </section>
 </section>
-<section id="build-model" class="level2">
-<h2 class="anchored" data-anchor-id="build-model">Build Model</h2>
-<section id="full-model" class="level3">
-<h3 class="anchored" data-anchor-id="full-model">Full Model</h3>
+<section id="sec-2buildmodel" class="level2">
+<h2 class="anchored" data-anchor-id="sec-2buildmodel">Build Model</h2>
+<section id="sec-2fullmodel" class="level3">
+<h3 class="anchored" data-anchor-id="sec-2fullmodel">Full Model</h3>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -328,7 +330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 <p>We first fit the entire data with all input variables into a multiple linear regression model Model1. We can use the <code>lm()</code> function:</p>
-<p><span class="math display">\[ y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon\]</span></p>
+<p><span id="eq-linearm1"><span class="math display">\[ y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon \tag{1}\]</span></span></p>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -337,8 +339,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can use the function <code>summary()</code> to obtain the coefficients, their associated <code>p-values</code>, and the <span class="math inline">\(R^2\)</span>. We can find that only one variable looks insignificant in this model.</p>
 </section>
-<section id="model-with-interaction-effect" class="level3">
-<h3 class="anchored" data-anchor-id="model-with-interaction-effect">Model with interaction effect</h3>
+<section id="sec-2interactioneffect" class="level3">
+<h3 class="anchored" data-anchor-id="sec-2interactioneffect">Model with interaction effect</h3>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -346,8 +348,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We can also check if the model should include an interaction effect. For example, to test an interaction effect between <span class="math inline">\(x_3\)</span> and <span class="math inline">\(x_4\)</span>, we can include <code>lm(y~x3*x4)</code>. The syntax <code>x_3*x_4</code> in the function <code>lm()</code> simultaneously includes <span class="math inline">\(x_3\)</span>, <span class="math inline">\(x_4\)</span>𝑥3, and <span class="math inline">\(x_3 \times x_4\)</span>𝑥4. That is, <code>lm(y~x3*x4)</code> fits the following model:</p>
-<p><span class="math display">\[y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon\]</span></p>
+<p>We can also check if the model should include an interaction effect. For example, to test an interaction effect between <span class="math inline">\(x_3\)</span> and <span class="math inline">\(x_4\)</span>, we can include <code>lm(y~x3*x4)</code>. The syntax <code>x3*x4</code> in the function <code>lm()</code> simultaneously includes <span class="math inline">\(x_3\)</span>, <span class="math inline">\(x_4\)</span>, and <span class="math inline">\(x_3 \times x_4\)</span>𝑥4. That is, <code>lm(y~x3*x4)</code> fits the following model:</p>
+<p><span id="eq-linearm2"><span class="math display">\[y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon \tag{2}\]</span></span> The result suggests that the interaction effect is significant.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">residuals</span>(Model2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">rstudent</span>(Model2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can generate diagnostic plots for models. The function <code>rstudent()</code> returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in <code>Model2</code>.</p>
+<p>Now we try two candidate models <code>M1</code> <a href="#eq-linearm1">Equation&nbsp;1</a> and <code>M2</code> <a href="#eq-linearm2">Equation&nbsp;2</a>:</p>
+<p><span class="math display">\[M1: y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon\]</span></p>
+<p><span class="math display">\[M2: y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon\]</span></p>
+<p>We use re-sampling methods to compare their performance.</p>
+</section>
+<section id="sec-2resampling" class="level3">
+<h3 class="anchored" data-anchor-id="sec-2resampling">Resampling Methods</h3>
+<section id="sec-2holdout" class="level4">
+<h4 class="anchored" data-anchor-id="sec-2holdout">Hold-out</h4>
+<p>We use two types of re-sampling methods. First, we illustrate how to compare the models using hold-out. We use 80-20 hold-out in this case. We develop models using a training data set and assess the model performance using a test data set.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduceable random sampling</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#index for training data set</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>train<span class="ot">=</span><span class="fu">sample</span>(<span class="fu">nrow</span>(Datlab2),<span class="fu">nrow</span>(Datlab2)<span class="sc">*</span><span class="fl">0.8</span>) </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#training data set</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>Datlab2.train<span class="ot">=</span>Datlab2[train, ] </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#test data set</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>Datlab2.test<span class="ot">=</span>Datlab2[<span class="sc">-</span>train, ] </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#the response in the test set</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>y.test<span class="ot">=</span>y[<span class="sc">-</span>train] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We first use the <code>sample()</code> function to randomly split the original data set into one training set and one test set.</p>
+<p>The function <code>nrow()</code> counts the total number of rows in <code>Datlab2</code>. Sometimes we want to reproduce the exact same sampling results; we can use the <code>set.seed()</code> function. To use this function, you need to set a seed, which is an arbitrary integer, e.g.&nbsp;1.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># full model with train data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>M1train<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">*</span>x4, <span class="at">data=</span>Datlab2.train)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># interaction model with train data</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>M2train <span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x3<span class="sc">*</span>x4, <span class="at">data=</span>Datlab2.train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The first model of choice <code>M1</code> contains all four variables and one interaction term. The second model <code>M2</code> contains three input variables and one interaction term. We learn the two models only using the training data set.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test performance of full model</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>y.predictM1<span class="ot">=</span><span class="fu">predict</span>(M1train,Datlab2.test)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># performance measure using MSE of full model</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>M1MSE<span class="ot">=</span><span class="fu">mean</span>((y.test<span class="sc">-</span>y.predictM1)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># test performance of interaction model</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>y.predictM2<span class="ot">=</span><span class="fu">predict</span>(M2train,Datlab2.test)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># performance measure using MSE of interaction model</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>M2MSE<span class="ot">=</span><span class="fu">mean</span>((y.test<span class="sc">-</span>y.predictM2)<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>To compare the model performance, we calculate the MSE of each model using the testing data set. The function <code>predict()</code> predicts the value of the response variable for each observation in test data. <code>y.predictM1</code> stores the predicted value of each observation in the test data set using model <code>M1</code>, and <code>y.predictM2</code> stores the predicted value of each observation in the test data set using model <code>M2</code>. The <code>mean()</code> function here is to calculate the average prediction deviation, i.e.&nbsp;MSE, in the entire test data.</p>
+<section id="aic-bic-adjusted-r2" class="level5">
+<h5 class="anchored" data-anchor-id="aic-bic-adjusted-r2">AIC, BIC, Adjusted <span class="math inline">\(R^2\)</span></h5>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># other performance measure of full model</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(M1train) <span class="co"># AIC</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(M1train) <span class="co"># BIC</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1train) <span class="co">#adj R2</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># other performance measure of interaction model</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(M2train) <span class="co"># AIC</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(M2train) <span class="co"># BIC </span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M2train) <span class="co"># adj. R2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>In addition to using MSE, the model can be assessed using functions <code>BIC()</code>, <code>AIC()</code> and adjusted R2 in <code>summary()</code>.</p>
+</section>
+</section>
+</section>
+<section id="cross-validation-cv" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation-cv">Cross-Validation (CV)</h3>
+<p>Now we illustrate how to compare the models using cross-validation. We use 5-fold cross validation along with MSE in this case.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduceable random sampling</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># number of folds</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># empty container to hold MSE of full model using CV</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>M1CVMSE<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,k)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># emtpy container to hold MSE of interaction model using CV</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>M2CVMSE<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We first create a vector to store the accuracy results associated with each fold for each model. We set the initial values for this vector as zero.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split data into k=5 folds </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>folds<span class="ot">=</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k,<span class="fu">nrow</span>(Datlab2),<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>folds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 1 4 1 2 5 3 2 3 3 1 5 5 2 2 1 5 5 1 1 5 5 2 2 1 4 1 4 3 2 2 4 4 4 2 4 1 1
+ [38] 4 1 2 3 2 2 5 2 1 3 3 4 3 1 4 5 1 1 4 5 5 4 5 4 4 1 5 5 1 1 3 2 2 3 2 4 3
+ [75] 5 2 2 1 3 3 2 2 5 2 5 4 5 4 1 3 2 3 3 1 5 4 4 1 5 5 1 3 3 3 3 4 1 1 4 2 1
+[112] 2 3 4 1 3 5 3 4 2 1 4 1 4 2 5 2 2 2 3 1 2 3 3 3 3 5 3 1 2 4 2 2 4 5 1 5 5
+[149] 5 4 4 4 2 1 3 1 1 4 5 1 3 4 5 4 1 1 5 5 1 5 4 2 2 1 5 5 2 5 2 4 2 5 5 4 4
+[186] 1 2 4 1 1 3 1 1 4 3 5 3 5 1 1</code></pre>
+</div>
+</div>
+<p>We use the <code>sample()</code> function to split the original data set into five folds. This creates a vector of random values between 1 through 5. This assigns the indices of <code>Datlab2</code> to each fold.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) <span class="co"># iterate from 1 through k=5</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>{ </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model of the train data portion of cv </span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  M1CV<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span> x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">*</span>x4,<span class="at">data=</span>Datlab2[folds<span class="sc">!=</span>j,]) </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># obtain the performance (MSE) of the model M1CV by applying it to the test portion of cv  </span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  M1CVMSE[j]<span class="ot">=</span><span class="fu">mean</span>((y<span class="sc">-</span><span class="fu">predict</span>(M1CV,Datlab2))[folds<span class="sc">==</span>j]<span class="sc">^</span><span class="dv">2</span>) }</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>{ M2CV<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span> x1 <span class="sc">+</span>x3<span class="sc">*</span>x4,<span class="at">data=</span>Datlab2[folds<span class="sc">!=</span>j,]) </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>M2CVMSE[j]<span class="ot">=</span><span class="fu">mean</span>((y<span class="sc">-</span><span class="fu">predict</span>(M2CV,Datlab2))[folds<span class="sc">==</span>j]<span class="sc">^</span><span class="dv">2</span>) }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>During each iteration, the <code>Datlab2[folds!=j,]</code> selects indices that are not equal to the <span class="math inline">\(jth\)</span> iteration and assigns it as the train data and stores the model value in <code>M1CV</code>. So during the first iteration, the data train data will be all the indices that are not assigned to 1 in the <code>folds</code> vector.</p>
+<p><code>[folds==j]</code> selects the indices that are equal to the <span class="math inline">\(jth\)</span> iteration, which is the test data. So, <code>(y-predict(M1CV,Datlab2))[folds==j]^2</code> is the standard error of the test data, which the difference between the actual values of <code>y</code> to the predicted values based on the model <code>M1CV</code>. MSE is calculated by obtaining the mean of the standard error in each iteration and is stored in <code>M2CVMSE[j]</code> where <code>j</code> is the current iteration index. <code>M2CVMSE</code> will then have 5 values since <code>j</code> has been set from 1 through <code>k=5</code>.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>MeanM1MSE<span class="ot">=</span><span class="fu">mean</span>(M1CVMSE) <span class="do">###CVMSE-M1###</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>MeanM2MSE<span class="ot">=</span><span class="fu">mean</span>(M2CVMSE) <span class="do">###CVMSE-M2###</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Finally, calculate the cross-validation MSE for each model by obtaining the mean of each CV model.</p>
+<!-- -->
+
 </section>
 </section>
 </section>
@@ -419,6 +572,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -486,7 +690,362 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="an">project:</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">  type: website</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="an">website:</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "CIS9660 Lab Compilation"</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">  author: "Chris Panlasigui, Yuanfeng Cai"</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-summary: "Show the code"</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap </span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="co">  output: false</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab Compilation</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory Data Analysis {#sec-1eda}</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### Loading Data {#sec-loaddata}</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>Before the lab, please download and save data <span class="in">`AutoLab1.csv`</span> from Blackboard-Data.</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="co"># use file.choose() if you want a window to open for you to locate your file</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto=read.csv(file.choose(),header=T, stringsAsFactors=TRUE)</span></span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="co"># if you know the path to your file you can directly include it and omit file.choose()</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>Auto<span class="ot">=</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"../raw_data/autolab1.csv"</span>,</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">header=</span>T, </span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>              <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>You can use function <span class="in">`read.table()`</span> or <span class="in">`read.csv()`</span> to import data into R, depending on the file type. You can use <span class="in">`help(read.csv)`</span> or <span class="in">`?read.csv`</span> to find more about how to use this function. Since the file type is .csv, we use <span class="in">`read.csv()`</span>in this case. Use the following command to load <span class="in">`AutoLab1.csv`</span> into R and store it as an object called Auto.</span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>The command, <span class="in">`file.choose()`</span> locates the file from your local drive, the option <span class="in">`header=T`</span> (or <span class="in">`header=TRUE`</span>) means that the first line of the file contains the variable names, the option <span class="in">`stringsAsFactors=TRUE`</span> (or <span class="in">`stringsAsFactors=T`</span>) means that converting characters to factors</span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Structure {#sec-1datastruct}</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Auto)</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Auto)</span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>You can use <span class="in">`head()`</span> to look at the first few rows. Function <span class="in">`dim()`</span> can output the number of rows followed by the number of columns and function <span class="in">`str()`</span> can return the data structure.</span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Summary Statistics {#sec-1summarystat}</span></span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto)</span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a>We can use function <span class="in">`summary()`</span> to output the summary statistics of data.</span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Restructuring {#sec-1datarestruct}</span></span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a>Auto[,<span class="dv">2</span>] <span class="ot">=</span><span class="fu">as.factor</span> (Auto[,<span class="dv">2</span>])</span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto[,<span class="dv">2</span>])</span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a>The variable cylinders (i.e. the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in @sec-1summarystat.</span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### Graphs {#sec-1edagraphs}</span></span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Scatterplot {#sec-1edascatter}</span></span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>Auto<span class="sc">$</span>horsepower , <span class="at">y=</span>Auto<span class="sc">$</span>mpg)</span>
+<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the <span class="in">`$`</span>sign or </span>
+<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span>
+<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Auto)</span>
+<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>horsepower , </span>
+<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span>mpg, <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Horsepower"</span>,</span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span><span class="st">"MPG "</span>,</span>
+<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">250</span>), </span>
+<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">50</span>), </span>
+<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Horsepower vs. MPG"</span>)</span>
+<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a>Use function <span class="in">`attach()`</span> to tell R to make the variables available by name. Function <span class="in">`names()`</span> lists all variable names. Then you can use the variable name directly.</span>
+<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-106"><a href="#cb28-106" aria-hidden="true" tabindex="-1"></a>Here the option <span class="in">`col ="red"`</span> tells R that color data points red. The options <span class="in">`xlab="Horsepower",ylab ="MPG"`</span>, and <span class="in">`main="Horsepower vs. MPG"`</span> tell R the x axis title, the y axis title and the main title respectively.</span>
+<span id="cb28-107"><a href="#cb28-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a>The options <span class="in">`xlim`</span> and <span class="in">`ylim`</span> tell R the range of x axis and y axis.</span>
+<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a>There are many other optional parameters in function <span class="in">`plot()`</span>, which we do not include in this case. You can use <span class="in">`help(plot)`</span> or <span class="in">`?plot`</span> to explore more about them.</span>
+<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>acceleration ,</span>
+<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span>mpg, </span>
+<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Acceleration"</span>,</span>
+<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span><span class="st">"MPG "</span>, </span>
+<span id="cb28-120"><a href="#cb28-120" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Acceleration vs. MPG"</span>)</span>
+<span id="cb28-121"><a href="#cb28-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-122"><a href="#cb28-122" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>weight , </span>
+<span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span>mpg, </span>
+<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Weight"</span>, </span>
+<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span><span class="st">"MPG "</span>, </span>
+<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Weight vs. MPG"</span>)</span>
+<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a>We can use function <span class="in">`par(mfrow=c(nrows,ncols))`</span> to combine multiple plots into one graph. For example, <span class="in">`par(mfrow=c(3,1))`</span> indicates that three figures will be arranged in 3 rows and 1 column. Now let’s generate another two figures and arrange them in one column.</span>
+<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-134"><a href="#cb28-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto)</span>
+<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto[<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>)])</span>
+<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a>The <span class="in">`pairs()`</span> function creates a scatterplot for every scatterplot pair of variables. We can also produce scatterplots matrix for just a subset of the variables.</span>
+<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Barplot {#sec-edabarplot}</span></span>
+<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-147"><a href="#cb28-147" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb28-148"><a href="#cb28-148" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>cylinders, </span>
+<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span>mpg, </span>
+<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a>    <span class="at">col=</span><span class="st">"red"</span>, </span>
+<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>    <span class="at">varwidth=</span>T, </span>
+<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab=</span><span class="st">" Cylinders "</span>, </span>
+<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span><span class="st">"MPG "</span>, </span>
+<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a>    <span class="at">main=</span><span class="st">"Cylinders vs. MPG"</span>)</span>
+<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a>If the variable plotted on the x-axis is categorical, then boxplots will automatically be produced.</span>
+<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Histogram {#sec-edahist}</span></span>
+<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span>mpg, </span>
+<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span><span class="dv">10</span>, </span>
+<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span><span class="st">"red"</span>, </span>
+<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span><span class="st">"MPG "</span>,</span>
+<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),</span>
+<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Histogram of MPG"</span>)</span>
+<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-172"><a href="#cb28-172" aria-hidden="true" tabindex="-1"></a>We can use <span class="in">`hist()`</span> function to plot a histogram. The option <span class="in">`“breaks=10”`</span> sets the total number of bins.</span>
+<span id="cb28-173"><a href="#cb28-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Linear Regression {#sec-2linearregression}</span></span>
+<span id="cb28-176"><a href="#cb28-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load Data {#sec-2loaddata}</span></span>
+<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a>Before the lab, please download Data Lab2Data.csv from Blackboard→Data. Then load Data Lab2Data.csv to object Datlab2.</span>
+<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a><span class="co"># delete global environment</span></span>
+<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
+<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a>Datlab2 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"../raw_data/Lab2Data.csv"</span>, </span>
+<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a>                   <span class="at">header=</span>T, </span>
+<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-191"><a href="#cb28-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-192"><a href="#cb28-192" aria-hidden="true" tabindex="-1"></a><span class="co"># check column/variable names</span></span>
+<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Datlab2)</span>
+<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Datlab2)</span>
+<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a>There are four input variables $(𝑥_1 ...𝑥_4)$ and one response variable $y$ in this data. Variable $x_4$ is a categorical variable with two possible values. We should create a dummy variable that takes on two possible numerical values. </span>
+<span id="cb28-199"><a href="#cb28-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(x4)</span>
+<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-205"><a href="#cb28-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-206"><a href="#cb28-206" aria-hidden="true" tabindex="-1"></a>The <span class="in">`contrasts()`</span> function returns how R codes this dummy variable.</span>
+<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Build Model {#sec-2buildmodel}</span></span>
+<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### Full Model {#sec-2fullmodel}</span></span>
+<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a>Model1<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4,<span class="at">data=</span> Datlab2)</span>
+<span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-218"><a href="#cb28-218" aria-hidden="true" tabindex="-1"></a>We first fit the entire data with all input variables into a multiple linear regression model Model1. We can use the <span class="in">`lm()`</span> function:</span>
+<span id="cb28-219"><a href="#cb28-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-220"><a href="#cb28-220" aria-hidden="true" tabindex="-1"></a>$$ y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon$$ {#eq-linearm1}</span>
+<span id="cb28-221"><a href="#cb28-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-225"><a href="#cb28-225" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model1)</span>
+<span id="cb28-226"><a href="#cb28-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a>We can use the function <span class="in">`summary()`</span> to obtain the coefficients, their associated <span class="in">`p-values`</span>, and the $R^2$. We can find that only one variable looks insignificant in this model.</span>
+<span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Model with interaction effect {#sec-2interactioneffect}</span></span>
+<span id="cb28-231"><a href="#cb28-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-234"><a href="#cb28-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-235"><a href="#cb28-235" aria-hidden="true" tabindex="-1"></a>Model2<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x3<span class="sc">*</span>x4)</span>
+<span id="cb28-236"><a href="#cb28-236" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model2)</span>
+<span id="cb28-237"><a href="#cb28-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-238"><a href="#cb28-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-239"><a href="#cb28-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-240"><a href="#cb28-240" aria-hidden="true" tabindex="-1"></a>We can also check if the model should include an interaction effect. For example, to test an interaction effect between $x_3$ and $x_4$, we can include <span class="in">`lm(y~x3*x4)`</span>. The syntax <span class="in">`x3*x4`</span> in the function <span class="in">`lm()`</span> simultaneously includes $x_3$, $x_4$, and $x_3 \times x_4$𝑥4. That is, <span class="in">`lm(y~x3*x4)`</span> fits the following model:</span>
+<span id="cb28-241"><a href="#cb28-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-242"><a href="#cb28-242" aria-hidden="true" tabindex="-1"></a>$$y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$ {#eq-linearm2}</span>
+<span id="cb28-243"><a href="#cb28-243" aria-hidden="true" tabindex="-1"></a>The result suggests that the interaction effect is significant.</span>
+<span id="cb28-244"><a href="#cb28-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-247"><a href="#cb28-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-248"><a href="#cb28-248" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">residuals</span>(Model2))</span>
+<span id="cb28-249"><a href="#cb28-249" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(Model2), <span class="fu">rstudent</span>(Model2))</span>
+<span id="cb28-250"><a href="#cb28-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-251"><a href="#cb28-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a>We can generate diagnostic plots for models. The function <span class="in">`rstudent()`</span> returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in <span class="in">`Model2`</span>.</span>
+<span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a>Now we try two candidate models <span class="in">`M1`</span> @eq-linearm1 and <span class="in">`M2`</span> @eq-linearm2:</span>
+<span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a>$$M1: y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon$$ </span>
+<span id="cb28-257"><a href="#cb28-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-258"><a href="#cb28-258" aria-hidden="true" tabindex="-1"></a>$$M2: y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$  </span>
+<span id="cb28-259"><a href="#cb28-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-260"><a href="#cb28-260" aria-hidden="true" tabindex="-1"></a>We use re-sampling methods to compare their performance.</span>
+<span id="cb28-261"><a href="#cb28-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-262"><a href="#cb28-262" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resampling Methods {#sec-2resampling}</span></span>
+<span id="cb28-263"><a href="#cb28-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-264"><a href="#cb28-264" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Hold-out {#sec-2holdout}</span></span>
+<span id="cb28-265"><a href="#cb28-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-266"><a href="#cb28-266" aria-hidden="true" tabindex="-1"></a>We use two types of re-sampling methods. First, we illustrate how to compare the models using hold-out. We use 80-20 hold-out in this case.  We develop models using a training data set and assess the model performance using a test data set. </span>
+<span id="cb28-267"><a href="#cb28-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-270"><a href="#cb28-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-271"><a href="#cb28-271" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduceable random sampling</span></span>
+<span id="cb28-272"><a href="#cb28-272" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb28-273"><a href="#cb28-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-274"><a href="#cb28-274" aria-hidden="true" tabindex="-1"></a><span class="co">#index for training data set</span></span>
+<span id="cb28-275"><a href="#cb28-275" aria-hidden="true" tabindex="-1"></a>train<span class="ot">=</span><span class="fu">sample</span>(<span class="fu">nrow</span>(Datlab2),<span class="fu">nrow</span>(Datlab2)<span class="sc">*</span><span class="fl">0.8</span>) </span>
+<span id="cb28-276"><a href="#cb28-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-277"><a href="#cb28-277" aria-hidden="true" tabindex="-1"></a><span class="co">#training data set</span></span>
+<span id="cb28-278"><a href="#cb28-278" aria-hidden="true" tabindex="-1"></a>Datlab2.train<span class="ot">=</span>Datlab2[train, ] </span>
+<span id="cb28-279"><a href="#cb28-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-280"><a href="#cb28-280" aria-hidden="true" tabindex="-1"></a><span class="co">#test data set</span></span>
+<span id="cb28-281"><a href="#cb28-281" aria-hidden="true" tabindex="-1"></a>Datlab2.test<span class="ot">=</span>Datlab2[<span class="sc">-</span>train, ] </span>
+<span id="cb28-282"><a href="#cb28-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-283"><a href="#cb28-283" aria-hidden="true" tabindex="-1"></a><span class="co">#the response in the test set</span></span>
+<span id="cb28-284"><a href="#cb28-284" aria-hidden="true" tabindex="-1"></a>y.test<span class="ot">=</span>y[<span class="sc">-</span>train] </span>
+<span id="cb28-285"><a href="#cb28-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-286"><a href="#cb28-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-287"><a href="#cb28-287" aria-hidden="true" tabindex="-1"></a>We first use the <span class="in">`sample()`</span> function to randomly split the original data set into one training set and one test set.</span>
+<span id="cb28-288"><a href="#cb28-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-289"><a href="#cb28-289" aria-hidden="true" tabindex="-1"></a>The function <span class="in">`nrow()`</span> counts the total number of rows in <span class="in">`Datlab2`</span>. Sometimes we want to reproduce the exact same sampling results; we can use the <span class="in">`set.seed()`</span> function. To use this function, you need to set a seed, which is an arbitrary integer, e.g. 1.</span>
+<span id="cb28-290"><a href="#cb28-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-293"><a href="#cb28-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-294"><a href="#cb28-294" aria-hidden="true" tabindex="-1"></a><span class="co"># full model with train data</span></span>
+<span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a>M1train<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">*</span>x4, <span class="at">data=</span>Datlab2.train)</span>
+<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a><span class="co"># interaction model with train data</span></span>
+<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a>M2train <span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x3<span class="sc">*</span>x4, <span class="at">data=</span>Datlab2.train)</span>
+<span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-300"><a href="#cb28-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-301"><a href="#cb28-301" aria-hidden="true" tabindex="-1"></a>The first model of choice <span class="in">`M1`</span> contains all four variables and one interaction term. The second model <span class="in">`M2`</span> contains three input variables and one interaction term. We learn the two models only using the training data set.</span>
+<span id="cb28-302"><a href="#cb28-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-305"><a href="#cb28-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-306"><a href="#cb28-306" aria-hidden="true" tabindex="-1"></a><span class="co"># test performance of full model</span></span>
+<span id="cb28-307"><a href="#cb28-307" aria-hidden="true" tabindex="-1"></a>y.predictM1<span class="ot">=</span><span class="fu">predict</span>(M1train,Datlab2.test)</span>
+<span id="cb28-308"><a href="#cb28-308" aria-hidden="true" tabindex="-1"></a><span class="co"># performance measure using MSE of full model</span></span>
+<span id="cb28-309"><a href="#cb28-309" aria-hidden="true" tabindex="-1"></a>M1MSE<span class="ot">=</span><span class="fu">mean</span>((y.test<span class="sc">-</span>y.predictM1)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb28-310"><a href="#cb28-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-311"><a href="#cb28-311" aria-hidden="true" tabindex="-1"></a><span class="co"># test performance of interaction model</span></span>
+<span id="cb28-312"><a href="#cb28-312" aria-hidden="true" tabindex="-1"></a>y.predictM2<span class="ot">=</span><span class="fu">predict</span>(M2train,Datlab2.test)</span>
+<span id="cb28-313"><a href="#cb28-313" aria-hidden="true" tabindex="-1"></a><span class="co"># performance measure using MSE of interaction model</span></span>
+<span id="cb28-314"><a href="#cb28-314" aria-hidden="true" tabindex="-1"></a>M2MSE<span class="ot">=</span><span class="fu">mean</span>((y.test<span class="sc">-</span>y.predictM2)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb28-315"><a href="#cb28-315" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-316"><a href="#cb28-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-317"><a href="#cb28-317" aria-hidden="true" tabindex="-1"></a>To compare the model performance, we calculate the MSE of each model using the testing data set. The function <span class="in">`predict()`</span> predicts the value of the response variable for each observation in test data. <span class="in">`y.predictM1`</span> stores the predicted value of each observation in the test data set using model <span class="in">`M1`</span>, and <span class="in">`y.predictM2`</span> stores the predicted value of each observation in the test data set using model <span class="in">`M2`</span>. The <span class="in">`mean()`</span> function here is to calculate the average prediction deviation, i.e. MSE, in the entire test data.</span>
+<span id="cb28-318"><a href="#cb28-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-319"><a href="#cb28-319" aria-hidden="true" tabindex="-1"></a><span class="fu">##### AIC, BIC, Adjusted $R^2$ </span></span>
+<span id="cb28-320"><a href="#cb28-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-321"><a href="#cb28-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-324"><a href="#cb28-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-325"><a href="#cb28-325" aria-hidden="true" tabindex="-1"></a><span class="co"># other performance measure of full model</span></span>
+<span id="cb28-326"><a href="#cb28-326" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(M1train) <span class="co"># AIC</span></span>
+<span id="cb28-327"><a href="#cb28-327" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(M1train) <span class="co"># BIC</span></span>
+<span id="cb28-328"><a href="#cb28-328" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1train) <span class="co">#adj R2</span></span>
+<span id="cb28-329"><a href="#cb28-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-330"><a href="#cb28-330" aria-hidden="true" tabindex="-1"></a><span class="co"># other performance measure of interaction model</span></span>
+<span id="cb28-331"><a href="#cb28-331" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(M2train) <span class="co"># AIC</span></span>
+<span id="cb28-332"><a href="#cb28-332" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(M2train) <span class="co"># BIC </span></span>
+<span id="cb28-333"><a href="#cb28-333" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M2train) <span class="co"># adj. R2</span></span>
+<span id="cb28-334"><a href="#cb28-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-335"><a href="#cb28-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-336"><a href="#cb28-336" aria-hidden="true" tabindex="-1"></a>In addition to using MSE, the model can be assessed using functions <span class="in">`BIC()`</span>, <span class="in">`AIC()`</span> and adjusted R2 in <span class="in">`summary()`</span>.</span>
+<span id="cb28-337"><a href="#cb28-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-338"><a href="#cb28-338" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cross-Validation (CV)</span></span>
+<span id="cb28-339"><a href="#cb28-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-340"><a href="#cb28-340" aria-hidden="true" tabindex="-1"></a>Now we illustrate how to compare the models using cross-validation. We use 5-fold cross validation along with MSE in this case. </span>
+<span id="cb28-341"><a href="#cb28-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-344"><a href="#cb28-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-345"><a href="#cb28-345" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduceable random sampling</span></span>
+<span id="cb28-346"><a href="#cb28-346" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) </span>
+<span id="cb28-347"><a href="#cb28-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-348"><a href="#cb28-348" aria-hidden="true" tabindex="-1"></a><span class="co"># number of folds</span></span>
+<span id="cb28-349"><a href="#cb28-349" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb28-350"><a href="#cb28-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-351"><a href="#cb28-351" aria-hidden="true" tabindex="-1"></a><span class="co"># empty container to hold MSE of full model using CV</span></span>
+<span id="cb28-352"><a href="#cb28-352" aria-hidden="true" tabindex="-1"></a>M1CVMSE<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,k)</span>
+<span id="cb28-353"><a href="#cb28-353" aria-hidden="true" tabindex="-1"></a><span class="co"># emtpy container to hold MSE of interaction model using CV</span></span>
+<span id="cb28-354"><a href="#cb28-354" aria-hidden="true" tabindex="-1"></a>M2CVMSE<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,k)</span>
+<span id="cb28-355"><a href="#cb28-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-356"><a href="#cb28-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-357"><a href="#cb28-357" aria-hidden="true" tabindex="-1"></a>We first create a vector to store the accuracy results associated with each fold for each model. We set the initial values for this vector as zero.</span>
+<span id="cb28-358"><a href="#cb28-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-361"><a href="#cb28-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-362"><a href="#cb28-362" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb28-363"><a href="#cb28-363" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
+<span id="cb28-364"><a href="#cb28-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-365"><a href="#cb28-365" aria-hidden="true" tabindex="-1"></a><span class="co"># split data into k=5 folds </span></span>
+<span id="cb28-366"><a href="#cb28-366" aria-hidden="true" tabindex="-1"></a>folds<span class="ot">=</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k,<span class="fu">nrow</span>(Datlab2),<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-367"><a href="#cb28-367" aria-hidden="true" tabindex="-1"></a>folds</span>
+<span id="cb28-368"><a href="#cb28-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-369"><a href="#cb28-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-370"><a href="#cb28-370" aria-hidden="true" tabindex="-1"></a>We use the <span class="in">`sample()`</span> function to split the original data set into five folds. This creates a vector of random values between 1 through 5.  This assigns the indices of <span class="in">`Datlab2`</span> to each fold.  </span>
+<span id="cb28-371"><a href="#cb28-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-374"><a href="#cb28-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-375"><a href="#cb28-375" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) <span class="co"># iterate from 1 through k=5</span></span>
+<span id="cb28-376"><a href="#cb28-376" aria-hidden="true" tabindex="-1"></a>{ </span>
+<span id="cb28-377"><a href="#cb28-377" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model of the train data portion of cv </span></span>
+<span id="cb28-378"><a href="#cb28-378" aria-hidden="true" tabindex="-1"></a>  M1CV<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span> x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">*</span>x4,<span class="at">data=</span>Datlab2[folds<span class="sc">!=</span>j,]) </span>
+<span id="cb28-379"><a href="#cb28-379" aria-hidden="true" tabindex="-1"></a>  <span class="co"># obtain the performance (MSE) of the model M1CV by applying it to the test portion of cv  </span></span>
+<span id="cb28-380"><a href="#cb28-380" aria-hidden="true" tabindex="-1"></a>  M1CVMSE[j]<span class="ot">=</span><span class="fu">mean</span>((y<span class="sc">-</span><span class="fu">predict</span>(M1CV,Datlab2))[folds<span class="sc">==</span>j]<span class="sc">^</span><span class="dv">2</span>) }</span>
+<span id="cb28-381"><a href="#cb28-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-382"><a href="#cb28-382" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k)</span>
+<span id="cb28-383"><a href="#cb28-383" aria-hidden="true" tabindex="-1"></a>{ M2CV<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span> x1 <span class="sc">+</span>x3<span class="sc">*</span>x4,<span class="at">data=</span>Datlab2[folds<span class="sc">!=</span>j,]) </span>
+<span id="cb28-384"><a href="#cb28-384" aria-hidden="true" tabindex="-1"></a>M2CVMSE[j]<span class="ot">=</span><span class="fu">mean</span>((y<span class="sc">-</span><span class="fu">predict</span>(M2CV,Datlab2))[folds<span class="sc">==</span>j]<span class="sc">^</span><span class="dv">2</span>) }</span>
+<span id="cb28-385"><a href="#cb28-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-386"><a href="#cb28-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-387"><a href="#cb28-387" aria-hidden="true" tabindex="-1"></a>During each iteration, the <span class="in">`Datlab2[folds!=j,]`</span> selects indices that are not equal to the $jth$ iteration and assigns it as the train data and stores the model value in <span class="in">`M1CV`</span>.  So during the first iteration, the data train data will be all the indices that are not assigned to 1 in the <span class="in">`folds`</span> vector. </span>
+<span id="cb28-388"><a href="#cb28-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-389"><a href="#cb28-389" aria-hidden="true" tabindex="-1"></a><span class="in">`[folds==j]`</span> selects the indices that are equal to the $jth$ iteration, which is the test data.  So, <span class="in">`(y-predict(M1CV,Datlab2))[folds==j]^2`</span> is the standard error of the test data, which the difference between the actual values of <span class="in">`y`</span> to the predicted values based on the model <span class="in">`M1CV`</span>.  MSE is calculated by obtaining the mean of the standard error in each iteration and is stored in <span class="in">`M2CVMSE[j]`</span> where <span class="in">`j`</span> is the current iteration index. <span class="in">`M2CVMSE`</span> will then have 5 values since <span class="in">`j`</span> has been set from 1 through <span class="in">`k=5`</span>.</span>
+<span id="cb28-390"><a href="#cb28-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-393"><a href="#cb28-393" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-394"><a href="#cb28-394" aria-hidden="true" tabindex="-1"></a>MeanM1MSE<span class="ot">=</span><span class="fu">mean</span>(M1CVMSE) <span class="do">###CVMSE-M1###</span></span>
+<span id="cb28-395"><a href="#cb28-395" aria-hidden="true" tabindex="-1"></a>MeanM2MSE<span class="ot">=</span><span class="fu">mean</span>(M2CVMSE) <span class="do">###CVMSE-M2###</span></span>
+<span id="cb28-396"><a href="#cb28-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-397"><a href="#cb28-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-398"><a href="#cb28-398" aria-hidden="true" tabindex="-1"></a>Finally, calculate the cross-validation MSE for each model by obtaining the mean of each CV model. </span>
+<span id="cb28-399"><a href="#cb28-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-400"><a href="#cb28-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-401"><a href="#cb28-401" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
