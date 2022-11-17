@@ -7,22 +7,21 @@ website:
   author: "Chris Panlasigui, Yuanfeng Cai"
 format: 
   html:
+    code-tools: true
     toc: true
     toc-depth: 3
-    code-fold: true
-    code-summary: "Show the code"
-    code-tools: true
+    code-fold: show
+    code-summary: "Code"
     code-overflow: wrap 
 editor: visual
 execute:
   output: false
 ---
 
-# Lab Compilation
 
-## Exploratory Data Analysis {#sec-1eda}
+# Exploratory Data Analysis {#sec-1eda}
 
-### Loading Data {#sec-loaddata}
+## Loading Data {#sec-loaddata}
 
 Before the lab, please download and save data `AutoLab1.csv` from Blackboard-Data.
 
@@ -40,7 +39,7 @@ You can use function `read.table()` or `read.csv()` to import data into R, depen
 
 The command, `file.choose()` locates the file from your local drive, the option `header=T` (or `header=TRUE`) means that the first line of the file contains the variable names, the option `stringsAsFactors=TRUE` (or `stringsAsFactors=T`) means that converting characters to factors
 
-### Data Structure {#sec-1datastruct}
+## Data Structure {#sec-1datastruct}
 
 ```{r}
 head(Auto)
@@ -50,7 +49,7 @@ str(Auto)
 
 You can use `head()` to look at the first few rows. Function `dim()` can output the number of rows followed by the number of columns and function `str()` can return the data structure.
 
-### Summary Statistics {#sec-1summarystat}
+## Summary Statistics {#sec-1summarystat}
 
 ```{r}
 summary(Auto)
@@ -58,7 +57,7 @@ summary(Auto)
 
 We can use function `summary()` to output the summary statistics of data.
 
-### Data Restructuring {#sec-1datarestruct}
+## Data Restructuring {#sec-1datarestruct}
 
 ```{r}
 Auto[,2] =as.factor (Auto[,2])
@@ -67,9 +66,9 @@ summary(Auto[,2])
 
 The variable cylinders (i.e. the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in @sec-1summarystat.
 
-### Graphs {#sec-1edagraphs}
+## Graphs {#sec-1edagraphs}
 
-#### Scatterplot {#sec-1edascatter}
+### Scatterplot {#sec-1edascatter}
 
 ```{r}
 plot(x=Auto$horsepower , y=Auto$mpg)
@@ -123,7 +122,7 @@ pairs(Auto[c(3:5)])
 The `pairs()` function creates a scatterplot for every scatterplot pair of variables. We can also produce scatterplots matrix for just a subset of the variables.
 
 
-#### Barplot {#sec-edabarplot}
+### Barplot {#sec-edabarplot}
 
 ```{r}
 par(mfrow=c(1,1))
@@ -138,7 +137,7 @@ plot(x=cylinders,
 
 If the variable plotted on the x-axis is categorical, then boxplots will automatically be produced.
 
-#### Histogram {#sec-edahist}
+### Histogram {#sec-edahist}
 
 ```{r}
 hist(x=mpg, 
@@ -152,9 +151,9 @@ hist(x=mpg,
 We can use `hist()` function to plot a histogram. The option `“breaks=10”` sets the total number of bins.
 
 
-## Linear Regression {#sec-2linearregression}
+# Linear Regression {#sec-2linearregression}
 
-### Load Data {#sec-2loaddata}
+## Load Data {#sec-2loaddata}
 
 Before the lab, please download Data Lab2Data.csv from Blackboard→Data. Then load Data Lab2Data.csv to object Datlab2.
 
@@ -219,17 +218,17 @@ plot(predict(Model2), rstudent(Model2))
 
 We can generate diagnostic plots for models. The function `rstudent()` returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in `Model2`.
 
-Now we try two candidate models `M1` @eq-linearm1 and `M2` @eq-linearm2:
 
-$$M1: y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon$$ 
+## Resampling Methods {#sec-2resampling}
 
-$$M2: y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$  
+Now we try two candidate models `M1` and `M2`.  We will use re-sampling methods to compare their performance. 
 
-We use re-sampling methods to compare their performance.
+$$M1: y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \beta_5(x_3 \times x_4) +  \epsilon$$ {#eq-M1}
 
-### Resampling Methods {#sec-2resampling}
+$$M2: y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$ {#eq-M2}
 
-#### Hold-out {#sec-2holdout}
+
+### Hold-out {#sec-2holdout}
 
 We use two types of re-sampling methods. First, we illustrate how to compare the models using hold-out. We use 80-20 hold-out in this case.  We develop models using a training data set and assess the model performance using a test data set. 
 
@@ -278,7 +277,7 @@ M2MSE=mean((y.test-y.predictM2)^2)
 
 To compare the model performance, we calculate the MSE of each model using the testing data set. The function `predict()` predicts the value of the response variable for each observation in test data. `y.predictM1` stores the predicted value of each observation in the test data set using model `M1`, and `y.predictM2` stores the predicted value of each observation in the test data set using model `M2`. The `mean()` function here is to calculate the average prediction deviation, i.e. MSE, in the entire test data.
 
-##### AIC, BIC, Adjusted $R^2$ 
+#### AIC, BIC, Adjusted $R^2$ 
 
 
 ```{r}
@@ -347,8 +346,100 @@ MeanM1MSE=mean(M1CVMSE) ###CVMSE-M1###
 MeanM2MSE=mean(M2CVMSE) ###CVMSE-M2###
 ```
 
-Finally, calculate the cross-validation MSE for each model by obtaining the mean of each CV model. 
+Finally, calculate the cross-validation MSE of `M1` (@eq-M1) and `M2` (@eq-M2) by obtaining the mean of each CV model. 
+
+# Classification: Logistic Regression & KNN {#sec-3class1}
+
+## Logistic Regression {#sec-3logistic}
+
+```{r}
+#| output: true
+#| 
+# clear global env (remove all stored obj) 
+rm(list = ls())
+
+# load data
+Default=read.csv(file = "../raw_data/Default.csv",
+                 header=T, stringsAsFactors=TRUE)
+attach(Default)
+
+# check the dimensions
+dim(Default)
+names(Default)
+```
+
+Load Data `Default.csv` to object Default. The original data set contains 10000 observations.
+
+```{r}
+glm.fit1=glm(default~balance+income+student,
+             family="binomial",
+             data=Default)
+```
+
+First, we can use the `glm()` function to fit model `glm.fit1` which includes all three independent variables: `student`, `balance` and `income`, with all the observations. 
+
+```{r}
+summary(glm.fit1)
+coef(glm.fit1)
+exp(coef(glm.fit1))
+```
+
+We can use the function `summary()` to obtain the coefficients, their associated p-values, model AIC and residual deviance. The function `exp()` calculates **odds ratio** of the coefficients.
+
+### Prediction accurary {#sec-3accuracy}
+
+```{r}
+set.seed(1)
+
+# 80/20 hold-out re-sampling
+# indices of 80% train data 
+train=sample(nrow(Default),nrow(Default)*0.8)
+
+# indices 20% test data
+Default.test=Default[-train, ]
+
+# y-values (default variable) of the 20% test data
+test.truevalue=default[-train]
+```
+
+We next evaluate the prediction accuracy of this model. We use the `sample()` function to split the original data set into one training set and one test set. We randomly select 80% of the observations for training and
+the remaining in the test set, `Default.test`. And save the true value of the testing set in the vector `test.truevalue`.
+
+
+```{r}
+glm.fit2=glm(default~balance+student+income,
+             data=Default,
+             subset=train,
+             family =binomial)
+```
+
+We fit the data with all three independent variables into a logistic regression model `glm.fit2`. The *`subset=train`* option in `glm()` is to fit a regression using only the observations corresponding to the subset.
+
+
+```{r}
+glm.probs2=predict(glm.fit2,Default.test, type="response")
+```
+
+We evaluate the performance of the model using the test set (Default.test). We use the function `predict()` to calculate the *predicted probabilities* of the **default** in the test set and store them to `glm.pred2`. The `type="response"` option tells R to output probabilities not the logit.
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Classification: CART, Bagging & Random Forest {#sec-4class2}
+
+asdf
