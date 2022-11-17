@@ -8,6 +8,7 @@ website:
 format: 
   html:
     code-tools: true
+    code-block-border-left: "#31BAE9"
     toc: true
     toc-depth: 3
     code-fold: show
@@ -47,7 +48,7 @@ dim(Auto)
 str(Auto)
 ```
 
-You can use `head()` to look at the first few rows. Function `dim()` can output the number of rows followed by the number of columns and function `str()` can return the data structure.
+You can use `head()` to look at the first 6 rows. Function `dim()` can output the number of rows followed by the number of columns and function `str()` can return the data structure.
 
 ## Summary Statistics {#sec-1summarystat}
 
@@ -129,9 +130,9 @@ par(mfrow=c(1,1))
 plot(x=cylinders, 
     y=mpg, 
     col="red", 
-    varwidth=T, 
+    varwidth=TRUE, 
     xlab=" Cylinders ", 
-    ylab ="MPG ", 
+    ylab="MPG ", 
     main="Cylinders vs. MPG")
 ```
 
@@ -141,7 +142,7 @@ If the variable plotted on the x-axis is categorical, then boxplots will automat
 
 ```{r}
 hist(x=mpg, 
-     breaks =10, 
+     breaks=10, 
      col="red", 
      xlab="MPG ",
      xlim=c(0,50),
@@ -386,7 +387,7 @@ exp(coef(glm.fit1))
 
 We can use the function `summary()` to obtain the coefficients, their associated p-values, model AIC and residual deviance. The function `exp()` calculates **odds ratio** of the coefficients.
 
-### Prediction accurary {#sec-3accuracy}
+### 80/20 Hold-out Logistic Regression Model
 
 ```{r}
 set.seed(1)
@@ -410,7 +411,7 @@ the remaining in the test set, `Default.test`. And save the true value of the te
 glm.fit2=glm(default~balance+student+income,
              data=Default,
              subset=train,
-             family =binomial)
+             family=binomial)
 ```
 
 We fit the data with all three independent variables into a logistic regression model `glm.fit2`. The *`subset=train`* option in `glm()` is to fit a regression using only the observations corresponding to the subset.
@@ -423,19 +424,108 @@ glm.probs2=predict(glm.fit2,Default.test, type="response")
 We evaluate the performance of the model using the test set (Default.test). We use the function `predict()` to calculate the *predicted probabilities* of the **default** in the test set and store them to `glm.pred2`. The `type="response"` option tells R to output probabilities not the logit.
 
 
+```{r}
+#| include: true
+#| output: true
+
+contrasts(Default$default)
+```
 
 
+R assigned `No=0` and `Yes=1` in the `default` variable.  This means the our classifiers for the model is defined as: 
+
+$$\hat{C}(x) = \left\{
+  \begin{matrix}
+  1 \ \text{'above'} & \hat{p}(x) > 0.5 \\
+  0 \ \text{'below'} & \hat{p}(x) \le 0.5
+  \end{matrix}
+  \right.
+$$
 
 
+```{r}
+glm.pred2=rep("No",2000)
+glm.pred2[glm.probs2>.5]="Yes"
+```
+
+We convert the predicted probabilities into a binary class label, `Yes` or `No`. The following commands create a vector of class predictions based on whether the predicted probability is greater than or less than `0.5`.
+
+```{r}
+# a more concise code is to use ifelse()
+glm.pred2=ifelse(glm.probs2 > 0.5, 'Yes', 'No')
+```
+
+```{r}
+table(glm.pred2,test.truevalue)
+mean(glm.pred2==test.truevalue)
+```
+
+#### Prediction Accuracy of 80/20 Hold-out {#sec-3accuracy}
+
+The `table()` function produce a *confusion matrix* to determine how many observations were correctly classified. We then use `mean()` function to calculate the *accuracy of the prediction*.
 
 
+## Cross-Validation Logistic Regression Model
+
+```{r}
+#| output: true
+
+# set number of folds
+k=5
+
+# randomly assign indices to folds
+folds=sample(1:k,nrow(Default),replace=TRUE)
+
+# first 10 and last 10 fold values
+cat(head(folds, n=10),"..." ,tail(folds, n=10))
+```
+
+We next evaluate the 5-fold cross-validation prediction of the model.  Split data into k=5-folds.  The output shows the first 10 and last 10 fold assignment.  These are the first 10 and the last 10 rows (or index) of the data. 
+
+```{r}
+# zero vectors to hold accuracy values of cv method
+accuracy=rep(0,k)
+
+for(i in 1:k)
+{
+  # cv logistic reg model of train data
+  glm.fit3=glm(default~balance+student+income, 
+               family="binomial",
+               data=Default[folds!=i,])
+  
+  # assign the current ith iteration as the test data
+  Default.test=Default[folds==i, ]
+  # obtain the probabilities using the test data
+  glm.probs3=predict(glm.fit3,Default.test, 
+                     type="response")
+
+  glm.pred3=rep("No", nrow(Default[folds==i,]))
+  glm.pred3[glm.probs3>.5]="yes"
+
+  # y-value (default variable) of the test data in the ith iteration
+  test.truevalue=default[folds==i]
+  
+  # calculate the accuracy
+  accuracy[i]=mean(glm.pred3==test.truevalue)
+}
+```
+
+We create a vector to store the accuracy result for each fold. We set the initial values for this vector as zero.  R treats logical `TRUE=1` and `FALSE=0`.  So the `mean(glm.pred3==test.truevalue)` tests if the actual value of `default` is predicted accurately in `glm.pred3` in each row.  If they match up, then the return value is TRUE=1, if they do not, then the return value is FALSE=0.  At each iteration, the prediction accuracy calculated by obtaining the average and is stored into `accuracy[i]`
+
+### Prediction Accuracy of CV Logistic Regression
+
+```{r}
+mean(accuracy)
+```
+
+Then we calculate the accuracy of the CV Logistic model by obtaining the grand average accuracy.
 
 
+## KNN
 
-
-
-
-
+```{r}
+library(class)
+```
 
 
 
