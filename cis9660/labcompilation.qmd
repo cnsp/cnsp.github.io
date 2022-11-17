@@ -1,40 +1,46 @@
 ---
-title: "CIS9660 Lab Compilation"
-author: "Chris Panlasigui, Yuanfeng Cai"
+project:
+  type: website
+
+website:
+  title: "CIS9660 Lab Compilation"
+  author: "Chris Panlasigui, Yuanfeng Cai"
 format: 
   html:
     toc: true
-    toc-depth: 2
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+    code-overflow: wrap 
 editor: visual
+execute:
+  output: false
 ---
 
-# Exploratory Data Analysis
+# Lab Compilation
 
-## Load Data
+## Exploratory Data Analysis {#sec-1eda}
+
+### Loading Data {#sec-loaddata}
 
 Before the lab, please download and save data `AutoLab1.csv` from Blackboard-Data.
-
-You can use function `read.table()` or `read.csv()` to import data into R, depending on the file type. You can use `help(read.csv)` or `?read.csv` to find more about how to use this function.
-
-Since the file type is .csv, we use `read.csv()`in this case. Use the following command to load `AutoLab1.csv` into R and store it as an object called Auto.
-
-The command, `file.choose()` locates the file from your local drive, the option `header=T` (or
-
-`header=TRUE`) means that the first line of the file contains the variable names, the option
-
-`stringsAsFactors=TRUE` (or `stringsAsFactors=T`) means that converting characters to factors
 
 ```{r}
 # use file.choose() if you want a window to open for you to locate your file
 # Auto=read.csv(file.choose(),header=T, stringsAsFactors=TRUE)
 
 # if you know the path to your file you can directly include it and omit file.choose()
-Auto=read.csv("../raw_data/autolab1.csv",header=T, stringsAsFactors=TRUE)
+Auto=read.csv(file="../raw_data/autolab1.csv",
+              header=T, 
+              stringsAsFactors=TRUE)
 ```
 
-## Data Structure
+You can use function `read.table()` or `read.csv()` to import data into R, depending on the file type. You can use `help(read.csv)` or `?read.csv` to find more about how to use this function. Since the file type is .csv, we use `read.csv()`in this case. Use the following command to load `AutoLab1.csv` into R and store it as an object called Auto.
 
-You can use `head()` to look at the first few rows. Function `dim()` can output the number of rows followed by the number of columns and function `str(auto)` can return the data structure.
+The command, `file.choose()` locates the file from your local drive, the option `header=T` (or `header=TRUE`) means that the first line of the file contains the variable names, the option `stringsAsFactors=TRUE` (or `stringsAsFactors=T`) means that converting characters to factors
+
+### Data Structure {#sec-1datastruct}
 
 ```{r}
 head(Auto)
@@ -42,14 +48,307 @@ dim(Auto)
 str(Auto)
 ```
 
-## Summary Statistics
+You can use `head()` to look at the first few rows. Function `dim()` can output the number of rows followed by the number of columns and function `str()` can return the data structure.
 
-We can use function `summary()` to output the summary statistics of data.
+### Summary Statistics {#sec-1summarystat}
 
 ```{r}
 summary(Auto)
 ```
 
-## Data Restructuring
+We can use function `summary()` to output the summary statistics of data.
 
-The variable cylinders (i.e. the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in Step 3.
+### Data Restructuring {#sec-1datarestruct}
+
+```{r}
+Auto[,2] =as.factor (Auto[,2])
+summary(Auto[,2])
+```
+
+The variable cylinders (i.e. the second column) is stored as a quantitative variable. As it only has a small number of possible values, we can convert it to a qualitative variable. Function as.factor() converts a quantitative variable into a qualitative variable. Check the summary statistics of cylinders to see if it is the same as the output in @sec-1summarystat.
+
+### Graphs {#sec-1edagraphs}
+
+#### Scatterplot {#sec-1edascatter}
+
+```{r}
+plot(x=Auto$horsepower , y=Auto$mpg)
+```
+
+We can use function plot() to produce plots. However, simply typing the variable names does not work, because R does not know where to find those variables. You can either use the `$`sign or 
+
+```{r}
+attach(Auto)
+names(Auto)
+plot(x=horsepower , 
+     y=mpg, col ="red", 
+     xlab="Horsepower",
+     ylab ="MPG ",
+     xlim=c(30,250), 
+     ylim=c(5,50), 
+     main="Horsepower vs. MPG")
+```
+
+Use function `attach()` to tell R to make the variables available by name. Function `names()` lists all variable names. Then you can use the variable name directly.
+
+Here the option `col ="red"` tells R that color data points red. The options `xlab="Horsepower",ylab ="MPG"`, and `main="Horsepower vs. MPG"` tell R the x axis title, the y axis title and the main title respectively.
+
+The options `xlim` and `ylim` tell R the range of x axis and y axis.
+There are many other optional parameters in function `plot()`, which we do not include in this case. You can use `help(plot)` or `?plot` to explore more about them.
+
+```{r}
+par(mfrow=c(1,2))
+plot(x=acceleration ,
+     y=mpg, 
+     col ="red", 
+     xlab="Acceleration",
+     ylab ="MPG ", 
+     main="Acceleration vs. MPG")
+
+plot(x=weight , 
+     y=mpg, 
+     col ="red", 
+     xlab="Weight", 
+     ylab ="MPG ", 
+     main="Weight vs. MPG")
+```
+
+We can use function `par(mfrow=c(nrows,ncols))` to combine multiple plots into one graph. For example, `par(mfrow=c(3,1))` indicates that three figures will be arranged in 3 rows and 1 column. Now let’s generate another two figures and arrange them in one column.
+
+```{r}
+pairs(Auto)
+pairs(Auto[c(3:5)])
+```
+
+The `pairs()` function creates a scatterplot for every scatterplot pair of variables. We can also produce scatterplots matrix for just a subset of the variables.
+
+
+#### Barplot {#sec-edabarplot}
+
+```{r}
+par(mfrow=c(1,1))
+plot(x=cylinders, 
+    y=mpg, 
+    col="red", 
+    varwidth=T, 
+    xlab=" Cylinders ", 
+    ylab ="MPG ", 
+    main="Cylinders vs. MPG")
+```
+
+If the variable plotted on the x-axis is categorical, then boxplots will automatically be produced.
+
+#### Histogram {#sec-edahist}
+
+```{r}
+hist(x=mpg, 
+     breaks =10, 
+     col ="red", 
+     xlab ="MPG ",
+     xlim=c(0,50),
+     main="Histogram of MPG")
+```
+
+We can use `hist()` function to plot a histogram. The option `“breaks=10”` sets the total number of bins.
+
+
+## Linear Regression {#sec-2linearregression}
+
+### Load Data {#sec-2loaddata}
+
+Before the lab, please download Data Lab2Data.csv from Blackboard→Data. Then load Data Lab2Data.csv to object Datlab2.
+
+```{r}
+# delete global environment
+rm(list = ls())
+
+# load data
+Datlab2 = read.csv(file="../raw_data/Lab2Data.csv", 
+                   header=T, 
+                   stringsAsFactors=TRUE)
+
+# check column/variable names
+names(Datlab2)
+
+attach(Datlab2)
+```
+
+There are four input variables $(𝑥_1 ...𝑥_4)$ and one response variable $y$ in this data. Variable $x_4$ is a categorical variable with two possible values. We should create a dummy variable that takes on two possible numerical values. 
+
+```{r}
+contrasts(x4)
+```
+
+The `contrasts()` function returns how R codes this dummy variable.
+
+## Build Model {#sec-2buildmodel}
+
+### Full Model {#sec-2fullmodel}
+
+```{r}
+Model1=lm(y~x1+x2+x3+x4,data= Datlab2)
+```
+
+We first fit the entire data with all input variables into a multiple linear regression model Model1. We can use the `lm()` function:
+
+$$ y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon$$ {#eq-linearm1}
+
+```{r}
+summary(Model1)
+```
+
+We can use the function `summary()` to obtain the coefficients, their associated `p-values`, and the $R^2$. We can find that only one variable looks insignificant in this model.
+
+### Model with interaction effect {#sec-2interactioneffect}
+
+```{r}
+Model2=lm(y~x3*x4)
+summary(Model2)
+```
+
+
+We can also check if the model should include an interaction effect. For example, to test an interaction effect between $x_3$ and $x_4$, we can include `lm(y~x3*x4)`. The syntax `x3*x4` in the function `lm()` simultaneously includes $x_3$, $x_4$, and $x_3 \times x_4$𝑥4. That is, `lm(y~x3*x4)` fits the following model:
+
+$$y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$ {#eq-linearm2}
+The result suggests that the interaction effect is significant.
+
+```{r}
+plot(predict(Model2), residuals(Model2))
+plot(predict(Model2), rstudent(Model2))
+```
+
+We can generate diagnostic plots for models. The function `rstudent()` returns the studentized residuals, which can be used to identity outliers. Given the diagnostics results, there is no outlier in `Model2`.
+
+Now we try two candidate models `M1` @eq-linearm1 and `M2` @eq-linearm2:
+
+$$M1: y =\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon$$ 
+
+$$M2: y = \beta_0 + \beta_1 x_3 + \beta_2 x_4 + \beta_3(x_3 \times x_4) + \epsilon$$  
+
+We use re-sampling methods to compare their performance.
+
+### Resampling Methods {#sec-2resampling}
+
+#### Hold-out {#sec-2holdout}
+
+We use two types of re-sampling methods. First, we illustrate how to compare the models using hold-out. We use 80-20 hold-out in this case.  We develop models using a training data set and assess the model performance using a test data set. 
+
+```{r}
+# reproduceable random sampling
+set.seed(1)
+
+#index for training data set
+train=sample(nrow(Datlab2),nrow(Datlab2)*0.8) 
+
+#training data set
+Datlab2.train=Datlab2[train, ] 
+
+#test data set
+Datlab2.test=Datlab2[-train, ] 
+
+#the response in the test set
+y.test=y[-train] 
+```
+
+We first use the `sample()` function to randomly split the original data set into one training set and one test set.
+
+The function `nrow()` counts the total number of rows in `Datlab2`. Sometimes we want to reproduce the exact same sampling results; we can use the `set.seed()` function. To use this function, you need to set a seed, which is an arbitrary integer, e.g. 1.
+
+```{r}
+# full model with train data
+M1train=lm(y~x1+x2+x3*x4, data=Datlab2.train)
+
+# interaction model with train data
+M2train =lm(y~x1+x3*x4, data=Datlab2.train)
+```
+
+The first model of choice `M1` contains all four variables and one interaction term. The second model `M2` contains three input variables and one interaction term. We learn the two models only using the training data set.
+
+```{r}
+# test performance of full model
+y.predictM1=predict(M1train,Datlab2.test)
+# performance measure using MSE of full model
+M1MSE=mean((y.test-y.predictM1)^2)
+
+# test performance of interaction model
+y.predictM2=predict(M2train,Datlab2.test)
+# performance measure using MSE of interaction model
+M2MSE=mean((y.test-y.predictM2)^2)
+```
+
+To compare the model performance, we calculate the MSE of each model using the testing data set. The function `predict()` predicts the value of the response variable for each observation in test data. `y.predictM1` stores the predicted value of each observation in the test data set using model `M1`, and `y.predictM2` stores the predicted value of each observation in the test data set using model `M2`. The `mean()` function here is to calculate the average prediction deviation, i.e. MSE, in the entire test data.
+
+##### AIC, BIC, Adjusted $R^2$ 
+
+
+```{r}
+# other performance measure of full model
+AIC(M1train) # AIC
+BIC(M1train) # BIC
+summary(M1train) #adj R2
+
+# other performance measure of interaction model
+AIC(M2train) # AIC
+BIC(M2train) # BIC 
+summary(M2train) # adj. R2
+```
+
+In addition to using MSE, the model can be assessed using functions `BIC()`, `AIC()` and adjusted R2 in `summary()`.
+
+### Cross-Validation (CV)
+
+Now we illustrate how to compare the models using cross-validation. We use 5-fold cross validation along with MSE in this case. 
+
+```{r}
+# reproduceable random sampling
+set.seed(1) 
+
+# number of folds
+k=5
+
+# empty container to hold MSE of full model using CV
+M1CVMSE=rep(0,k)
+# emtpy container to hold MSE of interaction model using CV
+M2CVMSE=rep(0,k)
+```
+
+We first create a vector to store the accuracy results associated with each fold for each model. We set the initial values for this vector as zero.
+
+```{r}
+#| output: true
+#| include: true
+
+# split data into k=5 folds 
+folds=sample(1:k,nrow(Datlab2),replace=TRUE)
+folds
+```
+
+We use the `sample()` function to split the original data set into five folds. This creates a vector of random values between 1 through 5.  This assigns the indices of `Datlab2` to each fold.  
+
+```{r}
+for(j in 1:k) # iterate from 1 through k=5
+{ 
+  # model of the train data portion of cv 
+  M1CV=lm(y~ x1+x2+x3*x4,data=Datlab2[folds!=j,]) 
+  # obtain the performance (MSE) of the model M1CV by applying it to the test portion of cv  
+  M1CVMSE[j]=mean((y-predict(M1CV,Datlab2))[folds==j]^2) }
+
+for(j in 1:k)
+{ M2CV=lm(y~ x1 +x3*x4,data=Datlab2[folds!=j,]) 
+M2CVMSE[j]=mean((y-predict(M2CV,Datlab2))[folds==j]^2) }
+```
+
+During each iteration, the `Datlab2[folds!=j,]` selects indices that are not equal to the $jth$ iteration and assigns it as the train data and stores the model value in `M1CV`.  So during the first iteration, the data train data will be all the indices that are not assigned to 1 in the `folds` vector. 
+
+`[folds==j]` selects the indices that are equal to the $jth$ iteration, which is the test data.  So, `(y-predict(M1CV,Datlab2))[folds==j]^2` is the standard error of the test data, which the difference between the actual values of `y` to the predicted values based on the model `M1CV`.  MSE is calculated by obtaining the mean of the standard error in each iteration and is stored in `M2CVMSE[j]` where `j` is the current iteration index. `M2CVMSE` will then have 5 values since `j` has been set from 1 through `k=5`.
+
+```{r}
+MeanM1MSE=mean(M1CVMSE) ###CVMSE-M1###
+MeanM2MSE=mean(M2CVMSE) ###CVMSE-M2###
+```
+
+Finally, calculate the cross-validation MSE for each model by obtaining the mean of each CV model. 
+
+
+
+
